@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
         else
         {
             // 닫아라
-            //firstCard.ClosedCard();
-            //secondCard.ClosedCard();
+            firstCard.ClosedCard();
+            secondCard.ClosedCard();
         }
 
         firstCard = null;
