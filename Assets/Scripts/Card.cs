@@ -25,25 +25,25 @@ public class Card : MonoBehaviour
         frontImage.sprite = Resources.Load<Sprite>($"Sprites/member_{idx.ToString("D2")}");
     }
 
-    /*public void OpenCard()
+    public void OpenCard()
     {
-        if (GameManager.instance.secondCard != null) return;
+        if (GameManager.Instance.secondCard != null) return;
 
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.instance.firstCard == null)
+        if (GameManager.Instance.firstCard == null)
         {
-            GameManager.instance.firstCard = this;
+            GameManager.Instance.firstCard = this;
         }
         else
         {
-            GameManager.instance.secondCard = this;
-            GameManager.instance.Matched();
+            GameManager.Instance.secondCard = this;
+            GameManager.Instance.Matched();
         }
-    }*/
+    }
 
     public void DestroyCard()
     {
