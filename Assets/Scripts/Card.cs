@@ -11,7 +11,7 @@ public class Card : MonoBehaviour
 
     public SpriteRenderer frontImage;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip clip;
 
     void Start()
