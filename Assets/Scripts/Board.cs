@@ -29,6 +29,6 @@ public class Board : MonoBehaviour
             obj.GetComponent<Card>().Setting(arr[i]);
         }
 
-        GameManager.Instance.cardCount = arr.Length;
+        //GameManager.instance.cardCount = arr.Length;
     }
 }
