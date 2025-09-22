@@ -51,7 +51,7 @@ MonoBehaviour:
   front: {fileID: 8924613422808163053}
   back: {fileID: 8781189621642217978}
   anim: {fileID: 3008460957492947358}
-  frontImage: {fileID: 0}
+  frontImage: {fileID: 4721882419918984028}
   clip: {fileID: 0}
 --- !u!95 &3008460957492947358
 Animator:
