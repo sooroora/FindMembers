@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class StartSceneUI : MonoBehaviour
 {
     [SerializeField] private GameObject settingUI;
-
+    
 
     private void Start()
     {
@@ -33,6 +33,7 @@ public class StartSceneUI : MonoBehaviour
 
     public void ExitGame()
     {
+        // 에디터에서는 작동안해요~
         Application.Quit();
     }
         
