@@ -10,8 +10,18 @@ public class QuitButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        button.onClick.AddListener(() => ButtonManager.Instance.QuitGame());
+        button.onClick.AddListener(OnQuitButton);
+    }
+
+    private void OnDisable()
+    {
+        button.onClick.RemoveListener(OnQuitButton);
+    }
+
+    private void OnQuitButton()
+    {
+        ButtonManager.Instance.QuitGame();
     }
 }

@@ -10,8 +10,18 @@ public class GameStartButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        button.onClick.AddListener(() => ButtonManager.Instance.StartGame());
+        button.onClick.AddListener(OnGameStartClick);
+    }
+
+    private void OnDisable()
+    {
+        button.onClick.RemoveListener(OnGameStartClick);
+    }
+
+    private void OnGameStartClick()
+    {
+        ButtonManager.Instance.StartGame();
     }
 }
