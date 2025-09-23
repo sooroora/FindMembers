@@ -6,10 +6,11 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public GameObject card;
+    private List<GameObject> cardList = new List<GameObject>();
 
     void Start()
     {
-        if(GameManager.Instance.currentLevel == 0)
+        if (GameManager.Instance.currentLevel == 0)
         {
             BoardSetting(8);
         }
@@ -25,79 +26,55 @@ public class Board : MonoBehaviour
 
     private void BoardSetting(int pair)
     {
+        int[] arr = new int[pair * 2];
+        for (int i = 0; i < pair; i++)
+        {
+            arr[i * 2] = i;
+            arr[i * 2 + 1] = i;
+        }
+
+        arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
+
         if (GameManager.Instance.currentLevel == 0)
         {
-            int[] arr = new int[pair * 2];
-            for (int i = 0; i < pair; i++)
-            {
-                arr[i * 2] = i;
-                arr[i * 2 + 1] = i;
-            }
-
-            arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                float x = (i % 4) * 1.4f - 2.1f;
-                float y = (i / 4) * 1.4f - 3.0f;
-
-                GameObject obj = Instantiate(card, transform);
-                obj.transform.position = new Vector2(x, y);
-                obj.transform.localScale = new Vector2(1.3f, 1.3f);
-                obj.GetComponent<Card>().Setting(arr[i]);
-            }
-
-            GameManager.Instance.cardCount = arr.Length;
+            StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -3.0f, new Vector2(1.3f, 1.3f)));
         }
 
         if (GameManager.Instance.currentLevel == 1)
         {
-            int[] arr = new int[pair * 2];
-            for (int i = 0; i < pair; i++)
-            {
-                arr[i * 2] = i;
-                arr[i * 2 + 1] = i;
-            }
-
-            arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                float x = (i % 4) * 1.4f - 2.1f;
-                float y = (i / 4) * 1.4f - 3.0f;
-
-                GameObject obj = Instantiate(card, this.transform);
-                obj.transform.position = new Vector2(x, y);
-                obj.transform.localScale = new Vector2(1.1f, 1.1f);
-                obj.GetComponent<Card>().Setting(arr[i]);
-            }
-
-            GameManager.Instance.cardCount = arr.Length;
+            StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -4.2f, new Vector2(1.2f, 1.2f)));
         }
 
         if (GameManager.Instance.currentLevel == 2)
         {
-            int[] arr = new int[pair * 2];
-            for (int i = 0; i < pair; i++)
-            {
-                arr[i * 2] = i;
-                arr[i * 2 + 1] = i;
-            }
+            StartCoroutine(DelayAnimation(arr, 5, 1.1f, -2.2f, -4.2f, new Vector2(1.0f, 1.0f)));
+        }
 
-            arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
+        GameManager.Instance.cardCount = arr.Length;
+    }
 
-            for (int i = 0; i < arr.Length; i++)
-            {
-                float x = (i % 5) * 1.4f - 2.1f;
-                float y = (i / 5) * 1.4f - 3.0f;
+    IEnumerator DelayAnimation(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart, Vector2 cardScale)
+    {
+        cardList.Clear();
 
-                GameObject obj = Instantiate(card, this.transform);
-                obj.transform.position = new Vector2(x, y);
-                obj.transform.localScale = new Vector2(1.0f, 1.0f);
-                obj.GetComponent<Card>().Setting(arr[i]);
-            }
+        for (int i = 0; i < arr.Length; i++)
+        {
+            float x = (i % widthCount) * cardSpacing + xStart;
+            float y = (i / widthCount) * cardSpacing + yStart;
 
-            GameManager.Instance.cardCount = arr.Length;
+            GameObject obj = Instantiate(card, transform);
+            obj.transform.position = new Vector2(x, y);
+            obj.transform.localScale = cardScale;
+            obj.GetComponent<Card>().Setting(arr[i]);
+
+            cardList.Add(obj);
+
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        foreach (GameObject c in cardList)
+        {
+            c.GetComponent<Card>().ActivateCard();
         }
     }
 }

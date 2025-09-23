@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using static AudioManager;
 
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] Text timeText;
+    [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameObject endText;
 
     public Card firstCard;
@@ -33,7 +34,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
+<<<<<<< HEAD
        // audioSource = GetComponent<AudioSource>();
+=======
+>>>>>>> dev
     }
 
     private void Update()
@@ -53,7 +57,11 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
+<<<<<<< HEAD
             AudioManager.Instance.Matched.Play();
+=======
+            //AudioManager.Instantiate...
+>>>>>>> dev
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
