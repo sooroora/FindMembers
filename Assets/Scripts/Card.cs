@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -14,9 +15,13 @@ public class Card : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clip;
 
-    void Start()
+    public Button button;
+
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        anim.enabled = false;
+        button.interactable = false;
     }
 
     public void Setting(int number)
@@ -65,5 +70,11 @@ public class Card : MonoBehaviour
         anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
+    }
+
+    public void ActivateCard()
+    {
+        anim.enabled = true;
+        button.interactable = true;
     }
 }
