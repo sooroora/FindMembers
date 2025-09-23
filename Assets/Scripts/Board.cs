@@ -68,8 +68,6 @@ public class Board : MonoBehaviour
 
             cardList.Add(obj);
 
-            cardList.Add(obj);
-
             yield return new WaitForSeconds(0.2f);
         }
 
