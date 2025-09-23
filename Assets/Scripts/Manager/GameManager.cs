@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
-<<<<<<< HEAD
-       // audioSource = GetComponent<AudioSource>();
-=======
->>>>>>> dev
+
+        AudioManager.Instance.BGM.Play();
+
+
     }
 
     private void Update()
@@ -57,11 +57,10 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-<<<<<<< HEAD
+
             AudioManager.Instance.Matched.Play();
-=======
-            //AudioManager.Instantiate...
->>>>>>> dev
+           
+
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
