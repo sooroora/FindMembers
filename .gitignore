@@ -101,5 +101,5 @@ InitTestScene*.unity*
 # Visual Studio configuration file
 .vsconfig
 
-Packages\manifest.json
-Packages\packages-lock.json
+# Packages\manifest.json
+# Packages\packages-lock.json
