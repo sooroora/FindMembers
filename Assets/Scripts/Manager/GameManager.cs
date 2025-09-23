@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     private float time;
     private AudioSource audioSource;
+    private int currentLevel; // Easy 0, Normal 1, Hard 2
 
     private void Awake()
     {
