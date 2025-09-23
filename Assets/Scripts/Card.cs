@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
@@ -9,17 +9,18 @@ public class Card : MonoBehaviour
     public GameObject back;
 
     public Animator anim;
-
     public SpriteRenderer frontImage;
-
-    public AudioSource audioSource;
-    public AudioClip clip;
-
     public Button button;
+
+    private GameManager gm;
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        gm = GameManager.Instance;
+    }
+
+    void OnEnable()
+    {
         anim.enabled = false;
         button.interactable = false;
     }
@@ -32,22 +33,28 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        if (GameManager.Instance.secondCard != null) return;
+        if (gm.secondCard != null) return;
+        if (gm.isLock) return;
 
-        audioSource.PlayOneShot(clip);
+        button.interactable = false;
+        //AudioManager.Instance...
         anim.SetBool("isOpen", true);
-        front.SetActive(true);
-        back.SetActive(false);
 
-        if (GameManager.Instance.firstCard == null)
+        if (gm.firstCard == null)
         {
-            GameManager.Instance.firstCard = this;
+            gm.firstCard = this;
         }
         else
         {
-            GameManager.Instance.secondCard = this;
-            GameManager.Instance.Matched();
+            gm.secondCard = this;
+            gm.Matched();
         }
+    }
+
+    private void AnimFlip()
+    {
+        front.SetActive(true);
+        back.SetActive(false);
     }
 
     public void DestroyCard()
@@ -57,6 +64,8 @@ public class Card : MonoBehaviour
 
     void DestroyCardInvoke()
     {
+        gm.UnLock();
+        button.interactable = true;
         Destroy(gameObject);
     }
 
@@ -67,6 +76,8 @@ public class Card : MonoBehaviour
 
     public void ClosedCardInvoke()
     {
+        gm.UnLock();
+        button.interactable = true;
         anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
