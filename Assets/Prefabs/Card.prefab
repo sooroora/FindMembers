@@ -55,6 +55,7 @@ MonoBehaviour:
   frontImage: {fileID: 4721882419918984028}
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: 4a3e0183e58f71a46a61723cde807c1b, type: 3}
+  button: {fileID: 1088354586588565057}
 --- !u!95 &3008460957492947358
 Animator:
   serializedVersion: 5
