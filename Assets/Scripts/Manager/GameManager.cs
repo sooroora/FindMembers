@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
     public float cardCount;
+    public int currentLevel; // Easy 0, Normal 1, Hard 2
 
     private float time;
     private AudioSource audioSource;
-    private int currentLevel; // Easy 0, Normal 1, Hard 2
 
     private void Awake()
     {
