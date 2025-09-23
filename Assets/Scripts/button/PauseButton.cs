@@ -10,8 +10,18 @@ public class PauseButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        button.onClick.AddListener(() => ButtonManager.Instance.PauseGame());
+        button.onClick.AddListener(OnPauseClick);
+    }
+
+    private void OnDisable()
+    {
+        button.onClick.RemoveListener(OnPauseClick);
+    }
+
+    private void OnPauseClick()
+    {
+        ButtonManager.Instance.PauseGame();
     }
 }

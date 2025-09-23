@@ -10,8 +10,18 @@ public class ResumeButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        button.onClick.AddListener(() => ButtonManager.Instance.ResumeGame());
+        button.onClick.AddListener(OnResumeClick);
+    }
+
+    private void OnDisable()
+    {
+        button.onClick.RemoveListener(OnResumeClick);
+    }
+
+    private void OnResumeClick()
+    {
+        ButtonManager.Instance.ResumeGame();
     }
 }
