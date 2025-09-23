@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
+
     public void OpenUI(GameObject newUI)
     {
         if (uiStack.Count > 0)
