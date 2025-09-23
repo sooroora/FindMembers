@@ -501,7 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1982402334}
-  endText: {fileID: 1689525484}
+  success: {fileID: 1689525484}
+  fail: {fileID: 1689525484}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   cardCount: 0
