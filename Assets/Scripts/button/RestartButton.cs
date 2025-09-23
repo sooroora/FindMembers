@@ -10,8 +10,18 @@ public class RestartButton : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        button.onClick.AddListener(() => ButtonManager.Instance.RestartGame());
+        button.onClick.AddListener(OnRestartClick);
+    }
+
+    private void OnDisable()
+    {
+        button.onClick.RemoveListener(OnRestartClick);
+    }
+
+    private void OnRestartClick()
+    {
+        ButtonManager.Instance.RestartGame();
     }
 }
