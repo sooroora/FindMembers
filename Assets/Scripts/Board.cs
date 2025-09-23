@@ -41,8 +41,59 @@ public class Board : MonoBehaviour
                 float x = (i % 4) * 1.4f - 2.1f;
                 float y = (i / 4) * 1.4f - 3.0f;
 
+                GameObject obj = Instantiate(card, transform);
+                obj.transform.position = new Vector2(x, y);
+                obj.transform.localScale = new Vector2(1.3f, 1.3f);
+                obj.GetComponent<Card>().Setting(arr[i]);
+            }
+
+            GameManager.Instance.cardCount = arr.Length;
+        }
+
+        if (GameManager.Instance.currentLevel == 1)
+        {
+            int[] arr = new int[pair * 2];
+            for (int i = 0; i < pair; i++)
+            {
+                arr[i * 2] = i;
+                arr[i * 2 + 1] = i;
+            }
+
+            arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                float x = (i % 4) * 1.4f - 2.1f;
+                float y = (i / 4) * 1.4f - 3.0f;
+
                 GameObject obj = Instantiate(card, this.transform);
                 obj.transform.position = new Vector2(x, y);
+                obj.transform.localScale = new Vector2(1.1f, 1.1f);
+                obj.GetComponent<Card>().Setting(arr[i]);
+            }
+
+            GameManager.Instance.cardCount = arr.Length;
+        }
+
+        if (GameManager.Instance.currentLevel == 2)
+        {
+            int[] arr = new int[pair * 2];
+            for (int i = 0; i < pair; i++)
+            {
+                arr[i * 2] = i;
+                arr[i * 2 + 1] = i;
+            }
+
+            arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                float x = (i % 5) * 1.4f - 2.1f;
+                float y = (i / 5) * 1.4f - 3.0f;
+
+                GameObject obj = Instantiate(card, this.transform);
+                obj.transform.position = new Vector2(x, y);
+                obj.transform.localScale = new Vector2(1.0f, 1.0f);
                 obj.GetComponent<Card>().Setting(arr[i]);
             }
 
