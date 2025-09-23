@@ -103,3 +103,9 @@ InitTestScene*.unity*
 
 # Packages\manifest.json
 # Packages\packages-lock.json
+
+git rm -r --cached Packages\packages-lock.json
+git rm -r --cached Packages\manifest.json
+
+Packages\packages-lock.json
+Packages\manifest.json
