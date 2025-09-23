@@ -47,10 +47,11 @@ public class Board : MonoBehaviour
 
         if (GameManager.Instance.currentLevel == 2)
         {
-            StartCoroutine(DelayAnimation(arr, 5, 1.1f, -2.2f, -4.2f));
+            StartCoroutine(DelayAnimation(arr, 5, 1.15f, -2.3f, -4.2f));
         }
 
         GameManager.Instance.cardCount = arr.Length;
+        GameManager.Instance.GameStart();
     }
 
     IEnumerator DelayAnimation(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart)
