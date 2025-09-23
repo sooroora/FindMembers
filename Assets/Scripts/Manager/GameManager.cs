@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] TextMeshProUGUI timeText;
-    [SerializeField] GameObject endText;
+    [SerializeField] GameObject success;
+    [SerializeField] GameObject fail;
 
     public Card firstCard;
     public Card secondCard;
@@ -30,11 +32,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Time.timeScale = 1.0f;
-    }
-
     private void Update()
     {
         if (!isPlay)
@@ -46,7 +43,6 @@ public class GameManager : MonoBehaviour
         if (time >= 30.0f)
         {
             GameOver();
-            time = 30.0f;
         }
     }
 
@@ -82,8 +78,29 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Time.timeScale = 0f;
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine()
+    {
         isPlay = false;
-        endText.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        fail.SetActive(true);
+    }
+
+    public void GameVictory()
+    {
+        StartCoroutine(GameVictoryRoutine());
+    }
+
+    IEnumerator GameVictoryRoutine()
+    {
+        isPlay = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        success.SetActive(true);
     }
 }
