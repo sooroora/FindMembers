@@ -1647,7 +1647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4050512376191085411
 Transform:
   m_ObjectHideFlags: 0
@@ -1700,6 +1700,7 @@ GameObject:
   - component: {fileID: 6299742422594094908}
   - component: {fileID: 7454928920937462263}
   - component: {fileID: 799578290096833164}
+  - component: {fileID: 6938930257741371586}
   m_Layer: 5
   m_Name: SuccessUI
   m_TagString: Untagged
@@ -1820,6 +1821,19 @@ MonoBehaviour:
   listPanel: {fileID: 8699092415667392215}
   memberPanel: {fileID: 6475495129173942310}
   memberCtrl: {fileID: 4712343317210812854}
+  bgPanel: {fileID: 7057965880362446482}
+--- !u!114 &6938930257741371586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057965880362446482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fae1101495438640b6b083be5dfb538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7635627479067594236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,9 +2092,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4398270033608446229}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: CancelInvoke
+      - m_Target: {fileID: 799578290096833164}
+        m_TargetAssemblyTypeName: MemberUI, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6938930257741371586}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2117,7 +2143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5032931081564881489
 Transform:
   m_ObjectHideFlags: 0
