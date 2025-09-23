@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -47,7 +47,7 @@ public class Board : MonoBehaviour
 
         if (GameManager.Instance.currentLevel == 2)
         {
-            StartCoroutine(DelayAnimation(arr, 5, 1.1f, -2.2f, -4.2f));
+            StartCoroutine(DelayAnimation(arr, 5, 1.15f, -2.3f, -4.2f));
         }
 
         GameManager.Instance.cardCount = arr.Length;
@@ -75,5 +75,7 @@ public class Board : MonoBehaviour
         {
             c.ActivateCard();
         }
+
+        GameManager.Instance.GameStart();
     }
 }

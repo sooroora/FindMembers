@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] TextMeshProUGUI timeText;
-    [SerializeField] GameObject endText;
+    [SerializeField] GameObject success;
+    [SerializeField] GameObject fail;
 
     public Card firstCard;
     public Card secondCard;
     public float cardCount;
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
+    public bool isLock;
 
     private float time;
     private bool isPlay;
@@ -30,11 +33,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Time.timeScale = 1.0f;
-    }
-
     private void Update()
     {
         if (!isPlay)
@@ -46,12 +44,13 @@ public class GameManager : MonoBehaviour
         if (time >= 30.0f)
         {
             GameOver();
-            time = 30.0f;
         }
     }
 
     public void Matched()
     {
+        isLock = true;
+
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
@@ -62,7 +61,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
 
             if (cardCount == 0)
-                GameOver();
+                GameVictory();
         }
         else
         {
@@ -75,6 +74,11 @@ public class GameManager : MonoBehaviour
         secondCard = null;
     }
 
+    public void UnLock()
+    {
+        isLock = false;
+    }
+
     public void GameStart()
     {
         isPlay = true;
@@ -82,8 +86,29 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Time.timeScale = 0f;
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine()
+    {
         isPlay = false;
-        endText.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        fail.SetActive(true);
+    }
+
+    public void GameVictory()
+    {
+        StartCoroutine(GameVictoryRoutine());
+    }
+
+    IEnumerator GameVictoryRoutine()
+    {
+        isPlay = false;
+
+        yield return new WaitForSeconds(1.5f);
+
+        success.SetActive(true);
     }
 }
