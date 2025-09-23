@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
 
     public Button button;
 
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         anim.enabled = false;
