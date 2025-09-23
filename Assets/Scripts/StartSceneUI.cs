@@ -7,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class StartSceneUI : MonoBehaviour
 {
     [SerializeField] private GameObject settingUI;
-    
+    public GameObject CloseSettingBtn;
+
+
 
     private void Start()
     {
         settingUI.SetActive(false);
     }
+
 
     public void MoveGameScene()
     {
