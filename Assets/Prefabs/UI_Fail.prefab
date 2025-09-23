@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 95100719742747179}
   - component: {fileID: 8172082701246837201}
   - component: {fileID: 6727272836850120026}
-  - component: {fileID: 1303996936435335039}
   m_Layer: 5
   m_Name: Text_Score
   m_TagString: Untagged
@@ -348,18 +347,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1303996936435335039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775254186381861405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6999648fa62e22845b1c4d1acc9e428a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3148138690432777102
 GameObject:
   m_ObjectHideFlags: 0
