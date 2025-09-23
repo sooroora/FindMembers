@@ -92,4 +92,12 @@ public class SuccessUI : MonoBehaviour
         int nextMember = (currentMember + 1) % imageIndex.Length;
         nextImg.GetComponent<Image>().sprite = memberImages[imageIndex[nextMember][0]];
     }
+
+    public void SetMember(int memberIndex)
+    {
+        currentMember = memberIndex;
+        currentImageIndex = 0;
+        UpdateImage();
+        UpdateButtonImages();
+    }
 }
