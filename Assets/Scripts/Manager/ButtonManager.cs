@@ -50,7 +50,7 @@ public class ButtonManager : MonoBehaviour
     public void QuitGame()
     {
         PlayClickSound();
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void Setting()
