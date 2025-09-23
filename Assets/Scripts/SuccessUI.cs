@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class SuccessUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject balloon;
+
     void Start()
+    {
+        NextSpawn();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpawnBalloon()
     {
-        
+        Instantiate(balloon);
+    }
+
+    void NextSpawn()
+    {
+        float delay = Random.Range(3f, 10f);
+        Invoke("SpawnBalloon", delay);
     }
 }
