@@ -34,7 +34,6 @@ public class SuccessUI : MonoBehaviour
         prevImg.GetComponent<Button>().onClick.AddListener(PrevMember);
         nextImg.GetComponent<Button>().onClick.AddListener(NextMember);
     }
-
     void Update()
     {
         nameTxt.text = memberNames[currentMember];
