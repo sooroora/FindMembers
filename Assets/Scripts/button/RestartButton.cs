@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class RestartButton : MonoBehaviour
 {
-    public void OnClick()
+    private Button button;
+
+    private void Awake()
     {
-        ButtonManager.Instance.RestartGame();
+        button = GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        button.onClick.AddListener(() => ButtonManager.Instance.RestartGame());
     }
 }

@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5673722046750484906}
   - component: {fileID: 8582408626397046583}
   - component: {fileID: 3737589235170617971}
+  - component: {fileID: 3783388586190284501}
   m_Layer: 5
   m_Name: Btn_Settings
   m_TagString: Untagged
@@ -270,19 +271,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8582408626397046583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1694450315214703890}
-        m_TargetAssemblyTypeName: StartSceneUI, Assembly-CSharp
-        m_MethodName: OpenSettingUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3783388586190284501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777304997688272021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf023508df58b649a2f68eccbecf904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingPanel: {fileID: 0}
 --- !u!1 &4121509745778921429
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +431,6 @@ GameObject:
   - component: {fileID: 3278947165086175198}
   - component: {fileID: 4051086989966567989}
   - component: {fileID: 8882384326525743986}
-  - component: {fileID: 1694450315214703890}
   m_Layer: 5
   m_Name: Canvas_StartScene
   m_TagString: Untagged
@@ -524,19 +525,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1694450315214703890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355725026630815723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0da023d817cfe74f89df173727ac928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settingUI: {fileID: 0}
 --- !u!1 &5912458818268364829
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +687,7 @@ GameObject:
   - component: {fileID: 9088034725882485395}
   - component: {fileID: 3863831618340757940}
   - component: {fileID: 3205595254746230712}
+  - component: {fileID: 4435864311547020158}
   m_Layer: 5
   m_Name: Btn_Exit
   m_TagString: Untagged
@@ -807,19 +796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3863831618340757940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1694450315214703890}
-        m_TargetAssemblyTypeName: StartSceneUI, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &4435864311547020158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162687647316110928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75c3f39e93cbb64181ade94087632f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6411819500145883219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1089,7 @@ GameObject:
   - component: {fileID: 9097445862766950153}
   - component: {fileID: 3836423726436647315}
   - component: {fileID: 8389995541529959301}
+  - component: {fileID: 7083350130080738082}
   m_Layer: 5
   m_Name: Btn_Start
   m_TagString: Untagged
@@ -1208,19 +1198,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3836423726436647315}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1694450315214703890}
-        m_TargetAssemblyTypeName: StartSceneUI, Assembly-CSharp
-        m_MethodName: MoveGameScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7083350130080738082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834392499065145153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6336b5d53c77049b58da1cfc73bcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8482871716092249335
 GameObject:
   m_ObjectHideFlags: 0
