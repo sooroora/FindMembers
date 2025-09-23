@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseButton : MonoBehaviour
 {
-    public void OnClick()
+    private Button button;
+
+    private void Awake()
     {
-        ButtonManager.Instance.PauseGame();
+        button = GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        button.onClick.AddListener(() => ButtonManager.Instance.PauseGame());
     }
 }
