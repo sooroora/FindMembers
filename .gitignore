@@ -97,11 +97,6 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-<<<<<<< Updated upstream
 
 # Visual Studio configuration file
 .vsconfig
-=======
-# Visual Studio configuration file
-.vsconfig
->>>>>>> Stashed changes
