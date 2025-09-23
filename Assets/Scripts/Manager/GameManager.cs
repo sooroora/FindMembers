@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
 
     private float time;
+    private bool isPlay;
 
     private void Awake()
     {
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isPlay)
+            return;
+
         time += Time.deltaTime;
         timeText.text = time.ToString("F2");
 
@@ -71,9 +75,15 @@ public class GameManager : MonoBehaviour
         secondCard = null;
     }
 
+    public void GameStart()
+    {
+        isPlay = true;
+    }
+
     private void GameOver()
     {
         Time.timeScale = 0f;
+        isPlay = false;
         endText.SetActive(true);
     }
 }
