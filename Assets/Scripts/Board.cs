@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -51,7 +51,6 @@ public class Board : MonoBehaviour
         }
 
         GameManager.Instance.cardCount = arr.Length;
-        GameManager.Instance.GameStart();
     }
 
     IEnumerator DelayAnimation(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart)
@@ -76,5 +75,7 @@ public class Board : MonoBehaviour
         {
             c.ActivateCard();
         }
+
+        GameManager.Instance.GameStart();
     }
 }

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
     public float cardCount;
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
+    public bool isLock;
 
     private float time;
     private bool isPlay;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
 
     public void Matched()
     {
+        isLock = true;
+
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
 
             if (cardCount == 0)
-                GameOver();
+                GameVictory();
         }
         else
         {
@@ -69,6 +72,11 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+    }
+
+    public void UnLock()
+    {
+        isLock = false;
     }
 
     public void GameStart()
