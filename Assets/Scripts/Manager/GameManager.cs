@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using static AudioManager;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -7,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Text timeText;
     [SerializeField] GameObject endText;
-    [SerializeField] AudioClip clip;
 
     public Card firstCard;
     public Card secondCard;
@@ -15,7 +16,6 @@ public class GameManager : MonoBehaviour
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
 
     private float time;
-    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
-        audioSource = GetComponent<AudioSource>();
+       // audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-            audioSource.PlayOneShot(clip);
+            AudioManager.Instance.Matched.Play();
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();

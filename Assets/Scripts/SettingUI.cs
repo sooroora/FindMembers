@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,22 +17,19 @@ public class SettingUI : MonoBehaviour
         bgmSlider.onValueChanged.AddListener(SetBgmVolume);
     }
     
-    
-    // 채윤님 AudioManager 나오면  설정하는 내용 추가 필요
     public void SetMasterVolume(float volume)
     {
-        
+        AudioManager.Instance.SetMasterVolume(volume);  
     }
-
 
     public void SetFxVolume(float volume)
     {
-        
+        AudioManager.Instance.SetSfxVolume(volume);
     }
 
     public void SetBgmVolume(float volume)
     {
-        
+        AudioManager.Instance.SetBgmVolume(volume);
     }
     
     
