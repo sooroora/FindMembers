@@ -15,7 +15,7 @@ public class OpenPopupButton : MonoBehaviour
         
     }
     private void OnEnable()
-    {
+    {   
         button.onClick.AddListener(OpenPopup);
     }
 
@@ -26,7 +26,7 @@ public class OpenPopupButton : MonoBehaviour
 
     private void OpenPopup()
     {
-        // 팝업 오픈 사운드 줄 추가 필요
+        ButtonManager.Instance.OpenPopup();
         UIManager.Instance.OpenUI(popup.gameObject);
     }
 }

@@ -53,8 +53,13 @@ public class ButtonManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
-    public void Setting()
+    public void OpenPopup()
     {
         PlayClickSound();
+    }
+
+    public void ClosePopup()
+    {
+        // 왠지 ClosePopup 도 해놓기
     }
 }
