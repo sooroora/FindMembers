@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-
-
+    public AudioMixer mixer;
     public AudioSource bgmSource;
     public AudioSource sfxSource;
 
