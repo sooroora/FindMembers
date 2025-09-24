@@ -23,13 +23,13 @@ public class ButtonManager : MonoBehaviour
         // AudioManager.Instance.....
     }
 
-    public void StartGame()
+    public void LoadMainScene()
     {
         PlayClickSound();
         SceneManager.LoadScene("MainScene");
     }
 
-    public void RestartGame()
+    public void LoadStartScene()
     {
         PlayClickSound();
         SceneManager.LoadScene("StartScene");
