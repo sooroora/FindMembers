@@ -60,6 +60,6 @@ public class ButtonManager : MonoBehaviour
 
     public void ClosePopup()
     {
-        // 왠지 ClosePopup 도 해놓기
+        PlayClickSound();
     }
 }

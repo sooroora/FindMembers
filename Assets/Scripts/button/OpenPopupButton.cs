@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class OpenPopupButton : MonoBehaviour
@@ -25,6 +25,6 @@ public class OpenPopupButton : MonoBehaviour
     private void OpenPopup()
     {
         ButtonManager.Instance.OpenPopup();
-        UIManager.Instance.OpenUI(popup.gameObject);
+        UIManager.Instance.OpenUI(popup);
     }
 }
