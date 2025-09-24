@@ -8,6 +8,13 @@ public class Board : MonoBehaviour
     public Card card;
     private List<Card> cardList = new List<Card>();
 
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnAllCardsFlip += AllCardOpen;
+        }
+    }
     private void OnDisable()
     {
         if (GameManager.Instance != null)
@@ -35,10 +42,6 @@ public class Board : MonoBehaviour
         else if (GameManager.Instance.currentLevel == 2)
         {
             BoardSetting(15);
-        }
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.OnAllCardsFlip += AllCardOpen;
         }
     }
 
