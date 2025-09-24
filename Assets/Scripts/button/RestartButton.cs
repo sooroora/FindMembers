@@ -22,6 +22,6 @@ public class RestartButton : MonoBehaviour
 
     private void OnRestartClick()
     {
-        ButtonManager.Instance.RestartGame();
+        ButtonManager.Instance.LoadMainScene();
     }
 }
