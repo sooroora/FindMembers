@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     public bool isLock;
     public Action OnAllCardsFlip;
     public bool isPlay;
-
-    private float time;
+    public float time;
 
     private void Awake()
     {
@@ -51,10 +50,20 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
 
+        if (Input.GetKey(KeyCode.A))
+        {
+            AudioManager.Instance.CardFlip.PlayOneShot(AudioManager.Instance.CardFlip.clip);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            AudioManager.Instance.Matched.PlayOneShot(AudioManager.Instance.Matched.clip);
+        }
+
         if (time <= 0f)
         {
             GameOver();
-        }
+        } 
     }
 
     public void Matched()
