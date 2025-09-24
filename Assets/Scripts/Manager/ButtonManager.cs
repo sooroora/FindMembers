@@ -20,7 +20,7 @@ public class ButtonManager : MonoBehaviour
 
     private void PlayClickSound()
     {
-        // AudioManager.Instance.....
+        AudioManager.Instance.PlayRandomClick();
     }
 
     public void LoadMainScene()
