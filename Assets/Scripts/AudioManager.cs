@@ -103,7 +103,10 @@ public class AudioManager : MonoBehaviour
         Failed.volume = volume;
         clear.volume = volume;
         TimeOver.volume = volume;
-        //BtnClick[0,1,2,3].volume = volume; 
+        foreach (AudioSource click in BtnClick)
+        {
+            click.volume = volume;
+        }
     }
 }
 
