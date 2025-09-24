@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     public bool isLock;
     public Action OnAllCardsFlip;
     public bool isPlay;
-
-    private float time;
+    public float time;
 
     private void Awake()
     {
@@ -40,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 5f;
+        time = 60f;
     }
 
     private void Update()
@@ -56,7 +55,7 @@ public class GameManager : MonoBehaviour
         if (time <= 0f)
         {
             GameOver();
-        }
+        } 
     }
 
     public void Matched()
