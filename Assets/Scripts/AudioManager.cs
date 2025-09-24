@@ -1,14 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
-
+ï»¿using UnityEngine;
 
 //public enum AudioType {BGM,CardFlip,Matched}
-
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,6 +9,10 @@ public class AudioManager : MonoBehaviour
     public AudioSource BGM;
     public AudioSource CardFlip;
     public AudioSource Matched;
+    public AudioSource ClookTicking;
+    public AudioSource Failed;
+    public AudioSource clear;
+    public AudioSource TimeOver;
 
     public void PlayOneShot(string sfxname)
     {
@@ -29,29 +25,39 @@ public class AudioManager : MonoBehaviour
             case "Matched":
                 Matched.PlayOneShot(Matched.clip);
                 break;
+            
+            case "ClookTicking":
+                Failed.PlayOneShot(ClookTicking.clip);
+                break;
 
+            case "Failed":
+                Failed.PlayOneShot(Failed.clip);
+                break;
+
+            case "clear":
+                Failed.PlayOneShot(clear.clip);
+                break;
+
+            case "TimeOver":
+                Failed.PlayOneShot(TimeOver.clip);
+                break;
         }
     }
 
-    public void PlayBGM(AudioClip clip, bool loop = true)
+    public void PlayBGM()
     {
-        if (BGM.clip == clip) return;
-        BGM.clip = clip;
-        BGM.loop = loop;
+        BGM.loop = true;
         BGM.Play();
     }
 
     public void UpdateBgmPitch()
     {
-        if (GameManager.Instance.time <= 10f)
-        {
-            BGM.pitch = 1.5f;
-        }
+        BGM.pitch = 1.25f;
+    }
 
-        else
-        {
-            BGM.pitch = 1.0f;
-        }
+    public void ResetBgmPitch()
+    {
+        BGM.pitch = 1f;
     }
 
     private void Awake()
@@ -65,28 +71,31 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
-        BGM.volume = 0.5f;
-        CardFlip.volume = 0.5f;
-        Matched.volume = 0.5f;
+    private void Start()
+    {
+        PlayBGM();
     }
 
     public void SetMasterVolume(float volume)
     {
-        AudioListener.volume = volume;//ÀüÃ¼¼Ò¸®Á¶Àý
+        AudioListener.volume = volume;  //ì „ì²´ì†Œë¦¬ì¡°ì ˆ
     }
+
     public void SetBgmVolume(float volume)
     {
-        BGM.volume = 0.5f;
-        BGM.volume = volume;//³ª¸ÓÁö ¼Ò¸®´Â ¿Àµð¿À¼Ò½º¿¡¼­ º¯°æ
+        BGM.volume = volume;    //ë‚˜ë¨¸ì§€ ì†Œë¦¬ëŠ” ì˜¤ë””ì˜¤ì†ŒìŠ¤ì—ì„œ ë³€ê²½
     }
+
     public void SetSfxVolume(float volume)
     {
-        CardFlip.volume = 0.5f;
-        Matched.volume = 0.5f;
-
         CardFlip.volume = volume;
         Matched.volume = volume;
+        ClookTicking.volume = volume * 0.05f;
+        Failed.volume = volume;
+        clear.volume = volume;
+        TimeOver.volume = volume;
         Debug.Log(volume);
     }
 }

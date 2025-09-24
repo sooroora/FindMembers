@@ -2,7 +2,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [DefaultExecutionOrder(-100)]
 
@@ -23,6 +22,8 @@ public class GameManager : MonoBehaviour
     public bool isPlay;
     public float time;
 
+    private bool isClookTick;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 60f;
+        time = 12f;
     }
 
     private void Update()
@@ -50,7 +51,12 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
 
-        AudioManager.Instance.UpdateBgmPitch();
+        if (time <= 10f && !isClookTick)
+        {
+            AudioManager.Instance.UpdateBgmPitch();
+            AudioManager.Instance.PlayOneShot("ClookTicking");
+            isClookTick = true;
+        }
 
         if (time <= 0f)
         {
@@ -77,6 +83,8 @@ public class GameManager : MonoBehaviour
         else
         {
             // 닫아라
+            AudioManager.Instance.PlayOneShot("Failed");
+
             firstCard.ClosedCard();
             secondCard.ClosedCard();
         }
@@ -102,9 +110,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOverRoutine()
     {
-        time = 0f;
+        AudioManager.Instance.ResetBgmPitch();
+        AudioManager.Instance.PlayOneShot("TimeOver");
+
+        isClookTick = false;
 
         isPlay = false;
+
+        time = 0f;
 
         OnAllCardsFlip?.Invoke();
 
@@ -120,6 +133,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameVictoryRoutine()
     {
+        AudioManager.Instance.ResetBgmPitch();
+        AudioManager.Instance.PlayOneShot("clear");
+
+        isClookTick = false;
+
         if (currentLevel == 0)
             PlayerPrefs.SetInt("ClearLevel", 1);
         else if (currentLevel == 1)
