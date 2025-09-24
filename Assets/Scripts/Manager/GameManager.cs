@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-            //AudioManager.Instantiate...
+            AudioManager.Instance.PlayOneShot("Matched");
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
