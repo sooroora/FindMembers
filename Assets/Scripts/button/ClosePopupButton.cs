@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ClosePopupButton : MonoBehaviour
 {
-    [SerializeField] private GameObject popup;
-
     private Button button;
 
     void Awake()
@@ -27,6 +25,6 @@ public class ClosePopupButton : MonoBehaviour
     private void ClosePopup()
     {
         ButtonManager.Instance.ClosePopup();
-        UIManager.Instance.OpenUI(popup);
+        UIManager.Instance.CloseUI();
     }
 }
