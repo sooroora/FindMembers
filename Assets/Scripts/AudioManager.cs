@@ -54,6 +54,7 @@ public class AudioManager : MonoBehaviour
     public void PlayRandomClick()
     {
         int randomclick = Random.Range(0, 4);
+        BtnClick[randomclick].PlayOneShot(BtnClick[randomclick].clip);
     }
 
     public void UpdateBgmPitch()
@@ -102,7 +103,7 @@ public class AudioManager : MonoBehaviour
         Failed.volume = volume;
         clear.volume = volume;
         TimeOver.volume = volume;
-        //BtnClick[].volume = volume; 볼륨조절 추가하기
+        //BtnClick[0,1,2,3].volume = volume; 
     }
 }
 

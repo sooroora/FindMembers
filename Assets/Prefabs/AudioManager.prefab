@@ -446,6 +446,11 @@ MonoBehaviour:
   Failed: {fileID: 7445229628212125006}
   clear: {fileID: 8117440526752559519}
   TimeOver: {fileID: 1947768051240394936}
+  BtnClick:
+  - {fileID: 6391016315169958052}
+  - {fileID: 7571917012677626557}
+  - {fileID: 4842394802010514863}
+  - {fileID: 7324768204324302601}
 --- !u!1 &3123410422228839779
 GameObject:
   m_ObjectHideFlags: 0
