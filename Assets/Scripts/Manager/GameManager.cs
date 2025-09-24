@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 60f;
+        time = 5f;
     }
 
     private void Update()
@@ -102,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOverRoutine()
     {
+        time = 0f;
+
         isPlay = false;
 
         OnAllCardsFlip?.Invoke();

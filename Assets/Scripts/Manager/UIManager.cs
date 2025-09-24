@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using System.Reflection;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +14,8 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            SceneManager.sceneLoaded += ClearStack;
         }
         else
         {
@@ -23,7 +23,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= ClearStack;
+    }
 
+    private void ClearStack(Scene scene, LoadSceneMode mode)
+    {
+        while (uiStack.Count > 0)
+        {
+            GameObject currentUI = uiStack.Pop();
+            if (currentUI != null)
+            {
+                currentUI.SetActive(false);
+            }
+        }
+    }
 
     public void OpenUI(GameObject newUI)
     {
@@ -39,13 +54,13 @@ public class UIManager : MonoBehaviour
         if (uiStack.Count > 0)
         {
             GameObject currentUI = uiStack.Pop();
-            currentUI.SetActive(false);
+            if (currentUI != null)
+            {
+                currentUI.SetActive(false);
+            }
 
             if (uiStack.Count > 0)
                 uiStack.Peek().SetActive(true);
         }
     }
-
-    
-
 }
