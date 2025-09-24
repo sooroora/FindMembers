@@ -75,7 +75,6 @@ public class SuccessUI : MonoBehaviour
         UpdateImage();
         UpdateButtonImages();
     }
-
     void UpdateImage()
     {
         int imageID = imageIndex[currentMember][currentImageIndex];
@@ -86,10 +85,10 @@ public class SuccessUI : MonoBehaviour
     {
         int prevMember = currentMember - 1;
         if (prevMember < 0) prevMember = imageIndex.Length - 1;
-        prevImg.GetComponent<Image>().sprite = memberImages[imageIndex[prevMember][0]];
+        prevImg.sprite = memberImages[imageIndex[prevMember][0]];
 
         int nextMember = (currentMember + 1) % imageIndex.Length;
-        nextImg.GetComponent<Image>().sprite = memberImages[imageIndex[nextMember][0]];
+        nextImg.sprite = memberImages[imageIndex[nextMember][0]];
     }
 
     public void SetMember(int memberIndex)
