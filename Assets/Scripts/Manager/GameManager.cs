@@ -2,9 +2,9 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 [DefaultExecutionOrder(-100)]
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;   
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-            AudioManager.Instance.PlayOneShot("Matched");
+            StartCoroutine(DelayPlay(0.3f, () => AudioManager.Instance.PlayOneShot("Matched")));
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         else
         {
             // 닫아라
-            AudioManager.Instance.PlayOneShot("Failed");
+            StartCoroutine(DelayPlay(0.3f, () => AudioManager.Instance.PlayOneShot("Failed")));
 
             firstCard.ClosedCard();
             secondCard.ClosedCard();
@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+    }
+
+    IEnumerator DelayPlay(float delay, UnityAction action)
+    {
+        yield return new WaitForSeconds(delay);
+        action.Invoke();
     }
 
     public void UnLock()
@@ -138,10 +144,11 @@ public class GameManager : MonoBehaviour
 
         isClookTick = false;
 
-        if (currentLevel == 0)
-            PlayerPrefs.SetInt("ClearLevel", 1);
-        else if (currentLevel == 1)
-            PlayerPrefs.SetInt("ClearLevel", 2);
+        int clearedLevel = currentLevel + 1;
+        int maxClearedLevel = PlayerPrefs.GetInt("ClearLevel", 0);
+
+        if (clearedLevel > maxClearedLevel)
+            PlayerPrefs.SetInt("ClearLevel", clearedLevel);
 
         isPlay = false;
 
