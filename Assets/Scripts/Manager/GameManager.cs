@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
     public bool isLock;
     public Action OnAllCardsFlip;
+    public bool isPlay;
 
     private float time;
-    private bool isPlay;
 
     private void Awake()
     {
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
+
+        time = 60f;
     }
 
     private void Update()
@@ -47,10 +49,10 @@ public class GameManager : MonoBehaviour
         if (!isPlay)
             return;
 
-        time += Time.deltaTime;
+        time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
 
-        if (time >= 30.0f)
+        if (time <= 0f)
         {
             GameOver();
         }
