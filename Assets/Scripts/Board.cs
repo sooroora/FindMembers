@@ -40,7 +40,7 @@ public class Board : MonoBehaviour
         {
             BoardSetting(10);
         }
-        else if (GameManager.Instance.currentLevel <= 2)
+        else if (GameManager.Instance.currentLevel >= 2)
         {
             BoardSetting(15);
         }
@@ -67,7 +67,7 @@ public class Board : MonoBehaviour
             StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -4.2f));
         }
 
-        if (GameManager.Instance.currentLevel <= 2)
+        if (GameManager.Instance.currentLevel >= 2)
         {
             StartCoroutine(DelayAnimation(arr, 5, 1.15f, -2.3f, -4.2f));
         }
