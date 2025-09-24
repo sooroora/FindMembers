@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
+ï»¿using UnityEngine;
 
 //public enum AudioType {BGM,CardFlip,Matched}
 
@@ -50,25 +44,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBGM(AudioClip clip, bool loop = true)
+    public void PlayBGM()
     {
-        if (BGM.clip == clip) return;
-        BGM.clip = clip;
-        BGM.loop = loop;
+        BGM.loop = true;
         BGM.Play();
     }
+
     public void UpdateBgmPitch()
     {
-        if (GameManager.Instance.time <= 10f)
-        {
-            BGM.pitch = 1.25f;
-        }
-
-        else
-        {
-            BGM.pitch = 1.0f;
-        }
+        BGM.pitch = 1.25f;
     }
+
+    public void ResetBgmPitch()
+    {
+        BGM.pitch = 1f;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -80,27 +71,31 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        BGM.volume = 0.5f;
-        CardFlip.volume = 0.5f;
-        Matched.volume = 0.5f;
     }
+
+    private void Start()
+    {
+        PlayBGM();
+    }
+
     public void SetMasterVolume(float volume)
     {
-        AudioListener.volume = volume;//ÀüÃ¼¼Ò¸®Á¶Àý
+        AudioListener.volume = volume;  //ì „ì²´ì†Œë¦¬ì¡°ì ˆ
     }
+
     public void SetBgmVolume(float volume)
     {
-        BGM.volume = 0.5f;
-        BGM.volume = volume;//³ª¸ÓÁö ¼Ò¸®´Â ¿Àµð¿À¼Ò½º¿¡¼­ º¯°æ
+        BGM.volume = volume;    //ë‚˜ë¨¸ì§€ ì†Œë¦¬ëŠ” ì˜¤ë””ì˜¤ì†ŒìŠ¤ì—ì„œ ë³€ê²½
     }
+
     public void SetSfxVolume(float volume)
     {
-        CardFlip.volume = 0.5f;
-        Matched.volume = 0.5f;
-
         CardFlip.volume = volume;
         Matched.volume = volume;
+        ClookTicking.volume = volume * 0.05f;
+        Failed.volume = volume;
+        clear.volume = volume;
+        TimeOver.volume = volume;
         Debug.Log(volume);
     }
 }
