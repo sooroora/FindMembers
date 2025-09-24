@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public Action OnAllCardsFlip;
     public bool isPlay;
 
-    public float time;
+    private float time;
 
     private void Awake()
     {
