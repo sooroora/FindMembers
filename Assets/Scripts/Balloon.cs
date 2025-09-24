@@ -15,6 +15,7 @@ public class Balloon : MonoBehaviour
     }
     void SpawnBalloon()
     {
+        if (successUI == null || !successUI.activeSelf) return;
         float randomX = Random.Range(-3f, 3f);
 
         Vector3 spawnPos = new Vector3(randomX, -6f, 0f);
