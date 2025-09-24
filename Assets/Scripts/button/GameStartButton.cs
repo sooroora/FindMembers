@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class GameStartButton : MonoBehaviour
 {
     private Button button;
+    [SerializeField] private int level;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class GameStartButton : MonoBehaviour
 
     private void OnGameStartClick()
     {
+        PlayerPrefs.SetInt("level", level);
         ButtonManager.Instance.StartGame();
     }
 }
