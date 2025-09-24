@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6510240956a376448a00cc9a9cd4efc7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   BGM: {fileID: 6434017559430118494}
   CardFlip: {fileID: 1955710991070460577}
   Matched: {fileID: 4890067770452209739}
-  ClookTicking: {fileID: 0}
-  Failed: {fileID: 0}
-  clear: {fileID: 0}
-  TimeOver: {fileID: 0}
+  ClookTicking: {fileID: 6999967210914761413}
+  Failed: {fileID: 7445229628212125006}
+  clear: {fileID: 8117440526752559519}
+  TimeOver: {fileID: 1947768051240394936}
 --- !u!1 &3123410422228839779
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1b61e030e17ddb94daefa3f0166de425, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -485,7 +485,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bc758c8e79422974dafe9e195266b5f2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -869,7 +869,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f1d1fdfec1473fd4799cd45f1911f261, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
