@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public float cardCount;
     public int currentLevel; // Easy 0. Moraml 1, Hard 2
     public bool isLock;
+    public Action OnAllCardsFlip;
 
     private float time;
     private bool isPlay;
@@ -92,6 +94,8 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOverRoutine()
     {
         isPlay = false;
+
+        OnAllCardsFlip?.Invoke();
 
         yield return new WaitForSeconds(1.5f);
 
