@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
@@ -37,7 +38,7 @@ public class Card : MonoBehaviour
         if (gm.isLock) return;
 
         button.interactable = false;
-        //AudioManager.Instance...
+        AudioManager.Instance.CardFlip.Play();
         anim.SetBool("isOpen", true);
 
         if (gm.firstCard == null)
@@ -59,11 +60,12 @@ public class Card : MonoBehaviour
 
     public void DestroyCard()
     {
-        Invoke("DestroyCardInvoke", 1.0f);
+        StartCoroutine(DestroyCardRoutine());
     }
 
-    void DestroyCardInvoke()
+    IEnumerator DestroyCardRoutine()
     {
+        yield return new WaitForSeconds(1.0f);
         gm.UnLock();
         button.interactable = true;
         Destroy(gameObject);
@@ -71,11 +73,12 @@ public class Card : MonoBehaviour
 
     public void ClosedCard()
     {
-        Invoke("ClosedCardInvoke", 1.0f);
+        StartCoroutine(ClosedCardRoutine());
     }
 
-    public void ClosedCardInvoke()
+    IEnumerator ClosedCardRoutine()
     {
+        yield return new WaitForSeconds(1.0f);
         gm.UnLock();
         button.interactable = true;
         anim.SetBool("isOpen", false);
@@ -87,5 +90,11 @@ public class Card : MonoBehaviour
     {
         anim.enabled = true;
         button.interactable = true;
+    }
+
+    public void FailOpenCard()
+    {
+        button.interactable = false;
+        anim.SetBool("isOpen", true);
     }
 }
