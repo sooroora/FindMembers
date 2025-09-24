@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -20,45 +19,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource CardFlip;
     public AudioSource Matched;
 
-
-    public void PlayOneShot(string sfxname)
-    {
-        switch(sfxname)
-        {
-            case "CardFlip":
-                CardFlip.PlayOneShot(CardFlip.clip);
-                break;
-            
-            case "Matched":
-                Matched.PlayOneShot(Matched.clip);
-                break;
-            
-        }
-    }
-
-    public void PlayBGM(AudioClip clip, bool loop = true)
-    {
-        if (BGM.clip == clip) return; 
-        BGM.clip = clip;
-        BGM.loop = loop;
-        BGM.Play();
-    }
-
-
-
-    public void UpdateBgmPitch()
-    {
-        if(GameManager.Instance.time <= 10f)
-        {
-            BGM.pitch = 1.5f;
-        }
-
-        else
-        {
-            BGM.pitch = 1.0f;
-        }
-    }
-
     private void Awake()
     {
         if (Instance == null)
@@ -76,10 +36,9 @@ public class AudioManager : MonoBehaviour
         CardFlip.volume = 0.5f;
         Matched.volume = 0.5f;
     }
-
+        
 
   
-
 
 
     public void SetMasterVolume(float volume)
