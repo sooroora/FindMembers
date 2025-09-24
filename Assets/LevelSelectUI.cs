@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelSelectUI : MonoBehaviour
@@ -13,6 +14,7 @@ public class LevelSelectUI : MonoBehaviour
 
     void Awake()
     {
+      
         if (PlayerPrefs.HasKey("ClearLevel"))
         {
             int nowLevel = PlayerPrefs.GetInt("ClearLevel");
@@ -38,4 +40,40 @@ public class LevelSelectUI : MonoBehaviour
     {
         
     }
+}
+
+[CustomEditor(typeof(LevelSelectUI))]
+public class LevelSelectTest : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        
+        if(GUILayout.Button("EASY 클리어"))
+        {
+            SetClearLevel(1);
+        }
+        
+        if(GUILayout.Button("NORMAL 클리어"))
+        {
+            SetClearLevel(2);            
+        }
+        
+        if(GUILayout.Button("클리어 단계 초기화"))
+        {
+            ResetClearLevel();
+        }
+
+    }
+
+    void SetClearLevel(int level)
+    {
+        PlayerPrefs.SetInt("ClearLevel", level);
+    }
+    
+    void ResetClearLevel()
+    {
+        PlayerPrefs.DeleteKey("ClearLevel");
+    }
+    
 }
