@@ -91,4 +91,10 @@ public class Card : MonoBehaviour
         anim.enabled = true;
         button.interactable = true;
     }
+
+    public void FailOpenCard()
+    {
+        button.interactable = false;
+        anim.SetBool("isOpen", true);
+    }
 }

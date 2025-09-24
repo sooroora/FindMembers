@@ -8,17 +8,42 @@ public class Board : MonoBehaviour
     public Card card;
     private List<Card> cardList = new List<Card>();
 
+    private GameManager gm;
+
+    void Awake()
+    {
+        gm = GameManager.Instance;
+    }
+
+    private void OnEnable()
+    {
+        gm.OnAllCardsFlip += AllCardsOpen;
+    }
+
+    private void OnDisable()
+    {
+        gm.OnAllCardsFlip -= AllCardsOpen;
+    }
+
+    private void AllCardsOpen()
+    {
+        foreach (Card c in cardList)
+        {
+            c.FailOpenCard();
+        }
+    }
+
     void Start()
     {
-        if (GameManager.Instance.currentLevel == 0)
+        if (gm.currentLevel == 0)
         {
             BoardSetting(8);
         }
-        else if (GameManager.Instance.currentLevel == 1)
+        else if (gm.currentLevel == 1)
         {
             BoardSetting(10);
         }
-        else if (GameManager.Instance.currentLevel == 2)
+        else if (gm.currentLevel == 2)
         {
             BoardSetting(15);
         }
@@ -35,22 +60,22 @@ public class Board : MonoBehaviour
 
         arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
 
-        if (GameManager.Instance.currentLevel == 0)
+        if (gm.currentLevel == 0)
         {
             StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -3.0f));
         }
 
-        if (GameManager.Instance.currentLevel == 1)
+        if (gm.currentLevel == 1)
         {
             StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -4.2f));
         }
 
-        if (GameManager.Instance.currentLevel == 2)
+        if (gm.currentLevel == 2)
         {
             StartCoroutine(DelayAnimation(arr, 5, 1.15f, -2.3f, -4.2f));
         }
 
-        GameManager.Instance.cardCount = arr.Length;
+        gm.cardCount = arr.Length;
     }
 
     IEnumerator DelayAnimation(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart)
@@ -76,6 +101,6 @@ public class Board : MonoBehaviour
             c.ActivateCard();
         }
 
-        GameManager.Instance.GameStart();
+        gm.GameStart();
     }
 }
