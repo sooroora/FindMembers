@@ -13,10 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource Failed;
     public AudioSource clear;
     public AudioSource TimeOver;
-    public AudioSource BtnClick1;
-    public AudioSource BtnClick2;
-    public AudioSource BtnClick3;
-    public AudioSource BtnClick4;
+    public AudioSource[] BtnClick;
 
     public void PlayOneShot(string sfxname)
     {
@@ -52,6 +49,11 @@ public class AudioManager : MonoBehaviour
     {
         BGM.loop = true;
         BGM.Play();
+    }
+
+    public void PlayRandomClick()
+    {
+        int randomclick = Random.Range(0, 4);
     }
 
     public void UpdateBgmPitch()
@@ -100,11 +102,7 @@ public class AudioManager : MonoBehaviour
         Failed.volume = volume;
         clear.volume = volume;
         TimeOver.volume = volume;
-        BtnClick1.volume = volume;
-        BtnClick2.volume = volume;
-        BtnClick3.volume = volume;
-        BtnClick4.volume = volume;
-    Debug.Log(volume);
+        //BtnClick[].volume = volume; 볼륨조절 추가하기
     }
 }
 
