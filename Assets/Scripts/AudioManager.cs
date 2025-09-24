@@ -6,9 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
-
 //public enum AudioType {BGM,CardFlip,Matched}
-
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource BGM;
     public AudioSource CardFlip;
     public AudioSource Matched;
+    public AudioSource ClookTicking;
+    public AudioSource Failed;
+    public AudioSource clear;
 
     public void PlayOneShot(string sfxname)
     {
@@ -30,6 +31,17 @@ public class AudioManager : MonoBehaviour
                 Matched.PlayOneShot(Matched.clip);
                 break;
 
+            case "Failed":
+                Failed.PlayOneShot(Failed.clip);
+                break ;
+
+            case "clear":
+                Failed.PlayOneShot(clear.clip);
+                break;
+
+            case "ClookTicking":
+                Failed.PlayOneShot(clear.clip);
+                break;
         }
     }
 
@@ -45,7 +57,7 @@ public class AudioManager : MonoBehaviour
     {
         if (GameManager.Instance.time <= 10f)
         {
-            BGM.pitch = 1.5f;
+            BGM.pitch = 1.25f;
         }
 
         else
