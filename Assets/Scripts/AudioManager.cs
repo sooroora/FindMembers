@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource Failed;
     public AudioSource clear;
     public AudioSource TimeOver;
+    public AudioSource[] BtnClick;
 
     public void PlayOneShot(string sfxname)
     {
@@ -48,6 +49,12 @@ public class AudioManager : MonoBehaviour
     {
         BGM.loop = true;
         BGM.Play();
+    }
+
+    public void PlayRandomClick()
+    {
+        int randomclick = Random.Range(0, 4);
+        BtnClick[randomclick].PlayOneShot(BtnClick[randomclick].clip);
     }
 
     public void UpdateBgmPitch()
@@ -96,7 +103,10 @@ public class AudioManager : MonoBehaviour
         Failed.volume = volume;
         clear.volume = volume;
         TimeOver.volume = volume;
-        Debug.Log(volume);
+        foreach (AudioSource click in BtnClick)
+        {
+            click.volume = volume;
+        }
     }
 }
 
