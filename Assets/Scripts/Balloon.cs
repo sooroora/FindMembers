@@ -15,6 +15,7 @@ public class Balloon : MonoBehaviour
     }
     void SpawnBalloon()
     {
+        if (successUI == null || !successUI.activeSelf) return;
         float randomX = Random.Range(-3f, 3f);
 
         Vector3 spawnPos = new Vector3(randomX, -6f, 0f);
@@ -28,8 +29,19 @@ public class Balloon : MonoBehaviour
 public class BalloonMover : MonoBehaviour
 {
     public float moveSpeed = 2f;
+    public float swaying = 0.3f;
+    public float swaySpeed = 2f;
+
+    private Vector3 startPos;
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
     void Update()
     {
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+        float sway = Mathf.Sin(Time.time * swaySpeed) * swaying;
+        transform.position = new Vector3(startPos.x + sway, transform.position.y, transform.position.z);
     }
 }
