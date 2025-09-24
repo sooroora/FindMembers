@@ -65,7 +65,7 @@ public class Card : MonoBehaviour
 
     IEnumerator DestroyCardRoutine()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.7f);
         gm.UnLock();
         button.interactable = true;
         Destroy(gameObject);
@@ -78,12 +78,15 @@ public class Card : MonoBehaviour
 
     IEnumerator ClosedCardRoutine()
     {
-        yield return new WaitForSeconds(1.0f);
-        gm.UnLock();
-        button.interactable = true;
-        anim.SetBool("isOpen", false);
-        front.SetActive(false);
-        back.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        if (gm.isPlay)
+        {
+            gm.UnLock();
+            button.interactable = true;
+            anim.SetBool("isOpen", false);
+            front.SetActive(false);
+            back.SetActive(true);
+        }
     }
 
     public void ActivateCard()
