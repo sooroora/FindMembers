@@ -38,7 +38,7 @@ public class Card : MonoBehaviour
         if (gm.isLock) return;
 
         button.interactable = false;
-        //AudioManager.Instance...
+        AudioManager.Instance.CardFlip.Play();
         anim.SetBool("isOpen", true);
 
         if (gm.firstCard == null)
