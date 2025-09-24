@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        currentLevel = PlayerPrefs.GetInt("level", 0);
+    }
+
     private void Update()
     {
         if (!isPlay)
