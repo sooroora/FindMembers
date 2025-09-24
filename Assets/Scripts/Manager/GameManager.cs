@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-100)]
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -33,6 +35,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        currentLevel = PlayerPrefs.GetInt("level", 0);
     }
 
     private void Update()
