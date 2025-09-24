@@ -2,10 +2,9 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 [DefaultExecutionOrder(-100)]
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;   
@@ -22,6 +21,8 @@ public class GameManager : MonoBehaviour
     public Action OnAllCardsFlip;
     public bool isPlay;
     public float time;
+
+    private bool isClookTick;
 
     private void Awake()
     {
@@ -50,7 +51,12 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
 
-        AudioManager.Instance.UpdateBgmPitch();
+        if (time <= 10f && !isClookTick)
+        {
+            AudioManager.Instance.UpdateBgmPitch();
+            AudioManager.Instance.PlayOneShot("ClookTicking");
+            isClookTick = true;
+        }
 
         if (time <= 0f)
         {
@@ -65,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-            AudioManager.Instance.PlayOneShot("Matched");
+            StartCoroutine(DelayPlay(0.3f, () => AudioManager.Instance.PlayOneShot("Matched")));
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -77,12 +83,20 @@ public class GameManager : MonoBehaviour
         else
         {
             // 닫아라
+            StartCoroutine(DelayPlay(0.3f, () => AudioManager.Instance.PlayOneShot("Failed")));
+
             firstCard.ClosedCard();
             secondCard.ClosedCard();
         }
 
         firstCard = null;
         secondCard = null;
+    }
+
+    IEnumerator DelayPlay(float delay, UnityAction action)
+    {
+        yield return new WaitForSeconds(delay);
+        action.Invoke();
     }
 
     public void UnLock()
@@ -102,9 +116,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOverRoutine()
     {
-        time = 0f;
+        AudioManager.Instance.ResetBgmPitch();
+        AudioManager.Instance.PlayOneShot("TimeOver");
+
+        isClookTick = false;
 
         isPlay = false;
+
+        time = 0f;
 
         OnAllCardsFlip?.Invoke();
 
@@ -120,10 +139,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameVictoryRoutine()
     {
-        if (currentLevel == 0)
-            PlayerPrefs.SetInt("ClearLevel", 1);
-        else if (currentLevel == 1)
-            PlayerPrefs.SetInt("ClearLevel", 2);
+        AudioManager.Instance.ResetBgmPitch();
+        AudioManager.Instance.PlayOneShot("clear");
+
+        isClookTick = false;
+
+        int clearedLevel = currentLevel + 1;
+        int maxClearedLevel = PlayerPrefs.GetInt("ClearLevel", 0);
+
+        if (clearedLevel > maxClearedLevel)
+            PlayerPrefs.SetInt("ClearLevel", clearedLevel);
 
         isPlay = false;
 
