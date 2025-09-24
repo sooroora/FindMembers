@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 487483197855594812}
   - component: {fileID: 7939878271944718386}
   - component: {fileID: 1070239604851156798}
-  - component: {fileID: 7026215948224040135}
+  - component: {fileID: 1565922348927345390}
   m_Layer: 5
   m_Name: CloseTxt
   m_TagString: Untagged
@@ -1228,7 +1228,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7026215948224040135}
+      - m_Target: {fileID: 1565922348927345390}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -1240,7 +1240,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7026215948224040135
+--- !u!114 &1565922348927345390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4910738230053888580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5f0c1f38abf3e45965bf231f9bc20a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3804352753a30a2439bea7fcda412850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5117836853868826913
@@ -1397,7 +1397,7 @@ GameObject:
   - component: {fileID: 405064232487637128}
   - component: {fileID: 5718282197966773251}
   - component: {fileID: 4810953923487189466}
-  - component: {fileID: 877164034761316936}
+  - component: {fileID: 4873558410455675185}
   m_Layer: 5
   m_Name: CloseTxt
   m_TagString: Untagged
@@ -1522,7 +1522,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 877164034761316936}
+      - m_Target: {fileID: 4873558410455675185}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -1534,7 +1534,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &877164034761316936
+--- !u!114 &4873558410455675185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5139340929578917243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5f0c1f38abf3e45965bf231f9bc20a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3804352753a30a2439bea7fcda412850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5185772467524454209
