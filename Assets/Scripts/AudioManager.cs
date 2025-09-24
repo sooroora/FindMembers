@@ -13,6 +13,10 @@ public class AudioManager : MonoBehaviour
     public AudioSource Failed;
     public AudioSource clear;
     public AudioSource TimeOver;
+    public AudioSource BtnClick1;
+    public AudioSource BtnClick2;
+    public AudioSource BtnClick3;
+    public AudioSource BtnClick4;
 
     public void PlayOneShot(string sfxname)
     {
@@ -96,7 +100,11 @@ public class AudioManager : MonoBehaviour
         Failed.volume = volume;
         clear.volume = volume;
         TimeOver.volume = volume;
-        Debug.Log(volume);
+        BtnClick1.volume = volume;
+        BtnClick2.volume = volume;
+        BtnClick3.volume = volume;
+        BtnClick4.volume = volume;
+    Debug.Log(volume);
     }
 }
 
