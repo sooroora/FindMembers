@@ -90,7 +90,7 @@ public class Board : MonoBehaviour
             AudioManager.Instance.CardFlip.Play();
             cardList.Add(obj);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         foreach (Card c in cardList)
