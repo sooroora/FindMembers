@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 5f;
+        time = 60f;
     }
 
     private void Update()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         if (firstCard.idx == secondCard.idx)
         {
             // 파괴해라
-            //AudioManager.Instantiate...
+            AudioManager.Instance.PlayOneShot("Matched");
 
             firstCard.DestroyCard();
             secondCard.DestroyCard();
@@ -120,6 +120,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameVictoryRoutine()
     {
+        if (currentLevel == 0)
+            PlayerPrefs.SetInt("ClearLevel", 1);
+        else if (currentLevel == 1)
+            PlayerPrefs.SetInt("ClearLevel", 2);
+
         isPlay = false;
 
         yield return new WaitForSeconds(1.5f);

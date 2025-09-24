@@ -24,6 +24,6 @@ public class GameStartButton : MonoBehaviour
     private void OnGameStartClick()
     {
         PlayerPrefs.SetInt("level", level);
-        ButtonManager.Instance.StartGame();
+        ButtonManager.Instance.LoadMainScene();
     }
 }
