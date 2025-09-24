@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 2666409562730177520}
   - component: {fileID: 7526042562275863966}
   - component: {fileID: 5955048228563885655}
+  - component: {fileID: 7289382842044890116}
+  - component: {fileID: 2042482058592217740}
   m_Layer: 5
   m_Name: Btn_VeryHard
   m_TagString: Untagged
@@ -172,7 +174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 119.55002, y: -254}
+  m_AnchoredPosition: {x: 119.55, y: -254}
   m_SizeDelta: {x: 239.1, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7526042562275863966
@@ -213,6 +215,63 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7289382842044890116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084085823404655359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 5955048228563885655}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2042482058592217740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084085823404655359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6336b5d53c77049b58da1cfc73bcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
 --- !u!1 &1122978373670381299
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +934,8 @@ MonoBehaviour:
   btnNormalLock: {fileID: 4451887000104923983}
   btnHard: {fileID: 145457262148738322}
   btnHardLock: {fileID: 4966459903987308326}
+  btnHidden: {fileID: 1084085823404655359}
+  backImgRect: {fileID: 6159577082475018523}
 --- !u!1 &3921008213277856488
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,10 +968,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7233926021802943319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.1161, y: 0}
-  m_SizeDelta: {x: 10.2322, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.1160965, y: 174.1472}
+  m_SizeDelta: {x: 473.95862, y: 348.2944}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6360047427916112642
 CanvasRenderer:
