@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public Action OnAllCardsFlip;
     public bool isPlay;
 
-    private float time;
+    public float time;
 
     private void Awake()
     {
@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
 
         time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
+
+        AudioManager.Instance.UpdateBgmPitch();
 
         if (time <= 0f)
         {
