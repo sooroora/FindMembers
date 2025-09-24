@@ -1230,7 +1230,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7026215948224040135}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: OnRestartClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1524,7 +1524,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 877164034761316936}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: OnRestartClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
