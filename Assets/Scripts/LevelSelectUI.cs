@@ -11,11 +11,14 @@ public class LevelSelectUI : MonoBehaviour
     [SerializeField] private GameObject btnHard;
     [SerializeField] private GameObject btnHardLock;
 
+    [Space(10)]
+    [SerializeField] private GameObject btnHidden;
+    [SerializeField] private RectTransform backImgRect;
+
 
     void Awake()
     {
-      
-        if (PlayerPrefs.HasKey("ClearLevel"))
+      if (PlayerPrefs.HasKey("ClearLevel"))
         {
             int nowLevel = PlayerPrefs.GetInt("ClearLevel");
             
@@ -31,6 +34,15 @@ public class LevelSelectUI : MonoBehaviour
                 btnNormalLock.SetActive(false);
                 btnHard.SetActive(true);
                 btnHardLock.SetActive(false);
+            }
+            else if (nowLevel == 3)
+            {
+                btnNormal.SetActive(true);
+                btnNormalLock.SetActive(false);
+                btnHard.SetActive(true);
+                btnHardLock.SetActive(false);
+                btnHidden.SetActive(true); 
+                backImgRect.sizeDelta = backImgRect.sizeDelta + (Vector2.up * 90f);
             }
         }
     }
@@ -49,6 +61,8 @@ public class LevelSelectTest : Editor
     {
         base.OnInspectorGUI();
         
+        GUILayout.Space(10);
+        GUILayout.Label("레벨 디버그");
         if(GUILayout.Button("EASY 클리어"))
         {
             SetClearLevel(1);
@@ -57,6 +71,11 @@ public class LevelSelectTest : Editor
         if(GUILayout.Button("NORMAL 클리어"))
         {
             SetClearLevel(2);            
+        }
+        
+        if(GUILayout.Button("지옥 난이도 열기"))
+        {
+            SetClearLevel(3);            
         }
         
         if(GUILayout.Button("클리어 단계 초기화"))
