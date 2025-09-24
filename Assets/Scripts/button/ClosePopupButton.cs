@@ -16,15 +16,15 @@ public class ClosePopupButton : MonoBehaviour
     }
     private void OnEnable()
     {
-        button.onClick.AddListener(OpenPopup);
+        button.onClick.AddListener(ClosePopup);
     }
 
     private void OnDisable()
     {
-        button.onClick.RemoveListener(OpenPopup);
+        button.onClick.RemoveListener(ClosePopup);
     }
 
-    private void OpenPopup()
+    private void ClosePopup()
     {
         ButtonManager.Instance.ClosePopup();
         UIManager.Instance.OpenUI(popup);
