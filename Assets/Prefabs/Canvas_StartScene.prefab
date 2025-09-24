@@ -1493,6 +1493,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4688716965626016068}
     m_Modifications:
+    - target: {fileID: 1817150801561780336, guid: 5df2c79c662422f40aed4881bf6b3985, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880028386898762059, guid: 5df2c79c662422f40aed4881bf6b3985, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697205824367708049, guid: 5df2c79c662422f40aed4881bf6b3985, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3697205824367708049, guid: 5df2c79c662422f40aed4881bf6b3985, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3866841187463086438, guid: 5df2c79c662422f40aed4881bf6b3985, type: 3}
       propertyPath: m_Name
       value: UI_LevelSelect
