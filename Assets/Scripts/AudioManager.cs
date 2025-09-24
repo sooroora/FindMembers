@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource ClookTicking;
     public AudioSource Failed;
     public AudioSource clear;
+    public AudioSource TimeOver;
 
     public void PlayOneShot(string sfxname)
     {
@@ -30,17 +31,21 @@ public class AudioManager : MonoBehaviour
             case "Matched":
                 Matched.PlayOneShot(Matched.clip);
                 break;
+            
+            case "ClookTicking":
+                Failed.PlayOneShot(ClookTicking.clip);
+                break;
 
             case "Failed":
                 Failed.PlayOneShot(Failed.clip);
-                break ;
+                break;
 
             case "clear":
                 Failed.PlayOneShot(clear.clip);
                 break;
 
-            case "ClookTicking":
-                Failed.PlayOneShot(clear.clip);
+            case "TimeOver":
+                Failed.PlayOneShot(TimeOver.clip);
                 break;
         }
     }
@@ -52,7 +57,6 @@ public class AudioManager : MonoBehaviour
         BGM.loop = loop;
         BGM.Play();
     }
-
     public void UpdateBgmPitch()
     {
         if (GameManager.Instance.time <= 10f)
@@ -65,7 +69,6 @@ public class AudioManager : MonoBehaviour
             BGM.pitch = 1.0f;
         }
     }
-
     private void Awake()
     {
         if (Instance == null)
@@ -82,7 +85,6 @@ public class AudioManager : MonoBehaviour
         CardFlip.volume = 0.5f;
         Matched.volume = 0.5f;
     }
-
     public void SetMasterVolume(float volume)
     {
         AudioListener.volume = volume;//전체소리조절

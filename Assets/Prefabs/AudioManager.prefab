@@ -174,7 +174,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   ClookTicking: {fileID: 0}
   Failed: {fileID: 0}
   clear: {fileID: 0}
+  TimeOver: {fileID: 0}
 --- !u!1 &3123410422228839779
 GameObject:
   m_ObjectHideFlags: 0
