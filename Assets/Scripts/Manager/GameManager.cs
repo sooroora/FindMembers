@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 12f;
+        time = 60f;
     }
 
     private void Update()
