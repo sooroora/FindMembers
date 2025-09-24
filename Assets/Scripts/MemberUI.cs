@@ -18,5 +18,6 @@ public class MemberUI : MonoBehaviour
     {
         memberPanel.SetActive(false);
         bgPanel.SetActive(false);
+        listPanel.SetActive(true);
     }
 }

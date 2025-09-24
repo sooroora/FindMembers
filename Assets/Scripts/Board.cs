@@ -8,6 +8,27 @@ public class Board : MonoBehaviour
     public Card card;
     private List<Card> cardList = new List<Card>();
 
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnAllCardsFlip += AllCardOpen;
+        }
+    }
+    private void OnDisable()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnAllCardsFlip -= AllCardOpen;
+    }
+
+    private void AllCardOpen()
+    {
+        foreach (Card c in cardList)
+        {
+            c.FailOpenCard();
+        }
+    }
+
     void Start()
     {
         if (GameManager.Instance.currentLevel == 0)

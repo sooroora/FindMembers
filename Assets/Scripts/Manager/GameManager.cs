@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-100)]
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
