@@ -25,9 +25,12 @@ public class SuccessUI : MonoBehaviour
         new int[]{12,13,14}
     };
 
-    void Start()
+    private void Awake()
     {
         LoadSprites();
+    }
+    void Start()
+    {
         UpdateImage();
         UpdateButtonImages();
         frontImg.GetComponent<Button>().onClick.AddListener(ChangeImage);
@@ -78,6 +81,8 @@ public class SuccessUI : MonoBehaviour
     void UpdateImage()
     {
         int imageID = imageIndex[currentMember][currentImageIndex];
+        Debug.Log(frontImg);
+        Debug.Log(memberImages[imageID]);
         frontImg.sprite = memberImages[imageID];
     }
 
