@@ -20,7 +20,7 @@ public class RestartButton : MonoBehaviour
         button.onClick.RemoveListener(OnRestartClick);
     }
 
-    public void OnRestartClick()
+    private void OnRestartClick()
     {
         ButtonManager.Instance.RestartGame();
     }
