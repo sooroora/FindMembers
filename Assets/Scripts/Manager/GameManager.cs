@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = PlayerPrefs.GetInt("level", 0);
 
-        time = 60f;
+        time = 5f;
     }
 
     private void Update()
@@ -50,15 +50,7 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeText.text = time.ToString("F2");
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            AudioManager.Instance.CardFlip.PlayOneShot(AudioManager.Instance.CardFlip.clip);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            AudioManager.Instance.Matched.PlayOneShot(AudioManager.Instance.Matched.clip);
-        }
+        AudioManager.Instance.UpdateBgmPitch();
 
         if (time <= 0f)
         {
