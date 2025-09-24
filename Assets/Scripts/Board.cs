@@ -87,7 +87,7 @@ public class Board : MonoBehaviour
             Card obj = Instantiate(card);
             obj.transform.position = new Vector2(x, y);
             obj.Setting(arr[i]);
-            AudioManager.Instance.CardFlip.Play();
+            AudioManager.Instance.PlayOneShot("CardFlip");
             cardList.Add(obj);
 
             yield return new WaitForSeconds(0.1f);
