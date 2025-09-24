@@ -25,7 +25,8 @@ public class Board : MonoBehaviour
     {
         foreach (Card c in cardList)
         {
-            c.FailOpenCard();
+            if (c != null)
+                c.FailOpenCard();
         }
     }
 
