@@ -79,11 +79,14 @@ public class Card : MonoBehaviour
     IEnumerator ClosedCardRoutine()
     {
         yield return new WaitForSeconds(0.7f);
-        gm.UnLock();
-        button.interactable = true;
-        anim.SetBool("isOpen", false);
-        front.SetActive(false);
-        back.SetActive(true);
+        if (gm.isPlay)
+        {
+            gm.UnLock();
+            button.interactable = true;
+            anim.SetBool("isOpen", false);
+            front.SetActive(false);
+            back.SetActive(true);
+        }
     }
 
     public void ActivateCard()
