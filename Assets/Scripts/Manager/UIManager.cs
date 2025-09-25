@@ -82,9 +82,6 @@ public class UIManager : MonoBehaviour
             {
                 currentUI.SetActive(false);
             }
-
-            if (uiStack.Count > 0)
-                uiStack.Peek().SetActive(true);
         }
     }
 }
