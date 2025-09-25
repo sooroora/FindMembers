@@ -1,26 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class QuitButton : MonoBehaviour
+﻿
+public class QuitButton : ButtonBase
 {
-    private Button button;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnQuitButton);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnQuitButton);
-    }
-
-    private void OnQuitButton()
+    protected override void OnButtonClick()
     {
         ButtonManager.Instance.QuitGame();
     }

@@ -1,30 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class PauseButton : MonoBehaviour
+﻿
+public class PauseButton : ButtonBaseWithTarget
 {
-    [SerializeField] private GameObject popup;
-
-    private Button button;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnPauseClick);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnPauseClick);
-    }
-
-    private void OnPauseClick()
+    protected override void OnButtonClick()
     {
         ButtonManager.Instance.PauseGame();
-        UIManager.Instance.OpenUI(popup);
+        UIManager.Instance.OpenUI(targetObject);
     }
 }

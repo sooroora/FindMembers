@@ -1,26 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class RestartButton : MonoBehaviour
+﻿
+public class RestartButton : ButtonBase
 {
-    private Button button;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnRestartClick);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnRestartClick);
-    }
-
-    private void OnRestartClick()
+    protected override void OnButtonClick()
     {
         ButtonManager.Instance.LoadMainScene();
     }

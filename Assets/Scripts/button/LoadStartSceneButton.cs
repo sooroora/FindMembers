@@ -1,26 +1,7 @@
-
-using UnityEngine;
-using UnityEngine.UI;
-
-public class LoadStartSceneButton : MonoBehaviour
+﻿
+public class LoadStartSceneButton : ButtonBase
 {
-    private Button button;
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnLoadStartSceneClick);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnLoadStartSceneClick);
-    }
-
-    private void OnLoadStartSceneClick()
+    protected override void OnButtonClick()
     {
         ButtonManager.Instance.LoadStartScene();
     }
