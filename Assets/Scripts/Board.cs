@@ -11,7 +11,7 @@ public class Board : MonoBehaviour
     // 현재 보드에 존재하는 카드들을 담는 리스트
     private List<Card> cardList = new List<Card>();
 
-    // 게임 오브젝트가 활성화될 때(GameObject.SetActive(true))
+    // 게임 오브젝트가 활성화될 때
     private void OnEnable()
     {
         if (GameManager.Instance != null)
@@ -21,7 +21,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    // 게임 오브젝트가 비활성화될 때(GameObject.SetActive(false))
+    // 게임 오브젝트가 비활성화될 때
     private void OnDisable()
     {
         if (GameManager.Instance != null)
@@ -70,7 +70,7 @@ public class Board : MonoBehaviour
         // 배열 랜덤 셔플
         arr = arr.OrderBy(x => Random.Range(0, 1000)).ToArray();
 
-        // 현재 레벨에 따라 보드 배치 (그리드 크기, 간격, 시작 위치 달라짐)
+        // 현재 레벨에 따라 보드 배치(앞에서부터 순서대로 배열, 가로길이, 카드간격, 첫번째 카드 x좌표 y좌표)
         if (GameManager.Instance.currentLevel == 0)
         {
             StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -3.0f));
@@ -106,7 +106,7 @@ public class Board : MonoBehaviour
             obj.transform.position = new Vector2(x, y);
             obj.Setting(arr[i]); // 카드 번호 세팅
             AudioManager.Instance.PlayOneShot("CardFlip"); // 카드 놓일 때 효과음
-            cardList.Add(obj);
+            cardList.Add(obj); // 리스트에 카드 담기
 
             // 카드 하나 생성할 때마다 0.1초 대기 (애니메이션 효과)
             yield return new WaitForSeconds(0.1f);

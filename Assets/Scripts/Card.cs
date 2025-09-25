@@ -86,7 +86,7 @@ public class Card : MonoBehaviour
         StartCoroutine(DestroyCardRoutine());
     }
 
-    // 카드 제거 코루틴
+    // 카드 제거 코루틴 (짝이 맞았을 때 실행)
     IEnumerator DestroyCardRoutine()
     {
         yield return new WaitForSeconds(0.7f); // 카드를 잠시 보여준 후 실행
