@@ -61,43 +61,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 새로운 팝업 UI를 엽니다.
-    /// </summary>
-    /// <param name="newUI">활성화할 팝업 GameObject</param>
     public void OpenUI(GameObject newUI)
     {
-        // [null 체크 추가] 들어온 인자가 null이면 여기서 즉시 종료하여 호출 코드(OpenPopupButton)를 간결화합니다.
         if (newUI == null)
         {
             Debug.LogWarning("OpenUI에 전달된 GameObject가 null입니다. 작업을 중단합니다.");
             return;
         }
 
-        // 현재 스택에 UI가 있다면 가장 위에 있는 UI를 비활성화합니다.
-        if (uiStack.Count > 0)
-            uiStack.Peek().SetActive(false); // Peek()은 제거하지 않고 참조만 가져옴
-
-        // 새 UI를 활성화하고 스택에 추가합니다.
         newUI.SetActive(true);
         uiStack.Push(newUI);
     }
 
-    /// <summary>
-    /// 가장 최근에 열린(스택의 최상단) 팝업 UI를 닫습니다.
-    /// </summary>
     public void CloseUI()
     {
         if (uiStack.Count > 0)
         {
-            // 1. 현재 UI를 스택에서 제거(Pop)하고 비활성화합니다.
             GameObject currentUI = uiStack.Pop();
             if (currentUI != null)
             {
                 currentUI.SetActive(false);
             }
 
-            // 2. 스택에 다음 UI가 남아있다면, 그 UI를 다시 활성화합니다.
             if (uiStack.Count > 0)
                 uiStack.Peek().SetActive(true);
         }
