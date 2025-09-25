@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonPrefab: {fileID: 8276065939900899987, guid: 6ed120cc6c3f7fd409d14a0295a31329, type: 3}
-  successUI: {fileID: 0}
+  successUI: {fileID: 6399598765481616293, guid: 1a2df678495ee594785009f524775bc1, type: 3}
   spawnTime: 2
   moveSpeed: 2
