@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using Random = UnityEngine.Random;
 
 /*
@@ -50,7 +49,15 @@ public class BalloonSpawner : MonoBehaviour
     Coroutine spawnBalloonCoroutine;
     public void StartSpawning()
     {
-        spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        if (spawnBalloonCoroutine == null)
+        {
+            spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        }
+        else
+        {
+            StopSpawning();
+            spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        }
     }
 
     public void StopSpawning()
