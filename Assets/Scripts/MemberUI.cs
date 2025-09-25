@@ -12,7 +12,7 @@ public class MemberUI : MonoBehaviour
     {
         listPanel.SetActive(false);
         memberPanel.SetActive(true);
-        memberCtrl.SetMember(memberIndex);
+        memberCtrl.SetMember(memberIndex);  //선택한 멤버 정보를 SuccessUI에 전달
     }
     public void ClosePanel()
     {
