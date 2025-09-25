@@ -84,6 +84,9 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayBGM();// 게임 시작 시 자동으로 배경음악 재생
+
+        
+
     }
 
     public void SetMasterVolume(float volume)
