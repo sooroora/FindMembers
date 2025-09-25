@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b383dfb5adc15428e02b996da42390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 790419339}
+  targetObject: {fileID: 790419339}
 --- !u!114 &1610276879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3622,18 +3622,6 @@ MonoBehaviour:
       - m_Target: {fileID: 799578290130670772}
         m_TargetAssemblyTypeName: MemberUI, Assembly-CSharp
         m_MethodName: ClosePanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4873558410221561609}
-        m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

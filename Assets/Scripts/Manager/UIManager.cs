@@ -67,6 +67,13 @@ public class UIManager : MonoBehaviour
     /// <param name="newUI">활성화할 팝업 GameObject</param>
     public void OpenUI(GameObject newUI)
     {
+        // [null 체크 추가] 들어온 인자가 null이면 여기서 즉시 종료하여 호출 코드(OpenPopupButton)를 간결화합니다.
+        if (newUI == null)
+        {
+            Debug.LogWarning("OpenUI에 전달된 GameObject가 null입니다. 작업을 중단합니다.");
+            return;
+        }
+
         // 현재 스택에 UI가 있다면 가장 위에 있는 UI를 비활성화합니다.
         if (uiStack.Count > 0)
             uiStack.Peek().SetActive(false); // Peek()은 제거하지 않고 참조만 가져옴
