@@ -11,34 +11,51 @@ public class BalloonSpawner : MonoBehaviour
     // 풍선 스프라이트를 프리팹으로 만든 것을 인스펙터에서 설정해줍니다.
     [SerializeField]  GameObject balloonPrefab;
     
+    // 풍선을 스폰하는 딜레이를 체크할 수 있는 변수입니다.
+    // 딜레이가 다 할 때마다 새로운 딜레이를 넣어줍니다.
     private float nowDelay;
+
+    // 랜덤 딜레이의 최소, 최대값을 설정합니다.
+    public float delayMin = 0.2f;
+    public float delayMax = 0.5f;
     
     void Start()
     {
-        nowDelay = Random.Range(0.2f, 0.5f);
+        nowDelay = Random.Range(delayMin, delayMax);
     }
 
     void Update()
     {
         nowDelay -= Time.deltaTime;
-
+        
+        // 딜레이 시간이 다 되었을 때,
         if (nowDelay <= 0)
         {
+            // 풍선을 스폰합니다.
             SpawnBalloon();
-            nowDelay = Random.Range(0.2f, 0.5f);
+            // 새로운 딜레이를 줍니다.
+            nowDelay = Random.Range(delayMin, delayMax);
         }
     }
 
     void SpawnBalloon()
     {
+        // 스폰 위치 설정
         float randomX = Random.Range(-3f, 3f);
         Vector3 spawnPos = new Vector3(randomX, -6f, 0f);
         
+        // 스폰
         GameObject balloon = Instantiate(this.balloonPrefab, spawnPos, Quaternion.identity);
+        
+        // 스폰한 풍선에 준영님이 작성한 BalloonMover 를 달아줍니다.
         BalloonMover spawnedBaloon = balloon.AddComponent<BalloonMover>();
+        
+        // 풍선이 올라가는 스피드를 설정합니다.
+        // 마구 올라가는 풍선의 느낌을 주기 위해 역시 랜덤으로 설정해 줍니다.
         spawnedBaloon.moveSpeed = Random.Range(3.0f, 10.0f);
         spawnedBaloon.swaySpeed = Random.Range(3.0f, 5.0f);
         
+        // 풍선은 6초 뒤에 제거합니다.
         Destroy(balloon, 6f);
     }
 }
