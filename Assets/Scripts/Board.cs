@@ -73,17 +73,17 @@ public class Board : MonoBehaviour
         // 현재 레벨에 따라 보드 배치(앞에서부터 순서대로 배열, 가로길이, 카드간격, 첫번째 카드 x좌표 y좌표)
         if (GameManager.Instance.currentLevel == 0)
         {
-            StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -3.0f));
+            StartCoroutine(BoardSettingRoutine(arr, 4, 1.4f, -2.1f, -3.0f));
         }
 
         if (GameManager.Instance.currentLevel == 1)
         {
-            StartCoroutine(DelayAnimation(arr, 4, 1.4f, -2.1f, -4.2f));
+            StartCoroutine(BoardSettingRoutine(arr, 4, 1.4f, -2.1f, -4.2f));
         }
 
         if (GameManager.Instance.currentLevel >= 2)
         {
-            StartCoroutine(DelayAnimation(arr, 5, 1.15f, -2.3f, -4.2f));
+            StartCoroutine(BoardSettingRoutine(arr, 5, 1.15f, -2.3f, -4.2f));
         }
 
         // 총 카드 개수를 GameManager에 전달
@@ -91,7 +91,7 @@ public class Board : MonoBehaviour
     }
 
     // 카드 생성 및 배치 코루틴
-    IEnumerator DelayAnimation(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart)
+    IEnumerator BoardSettingRoutine(int[] arr, int widthCount, float cardSpacing, float xStart, float yStart)
     {
         cardList.Clear(); // 카드 리스트 초기화
 
