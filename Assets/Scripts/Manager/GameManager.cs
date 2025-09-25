@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
         time = 60f; // 초기 남은 시간을 60초로 설정
     }
 
+    private void OnDisable()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     private void Update()
     {
         if (!isPlay)
