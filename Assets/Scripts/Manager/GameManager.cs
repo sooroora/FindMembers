@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        fail.SetActive(true); // 실패 UI 활성화
+        UIManager.Instance.OpenUI(fail); // 실패 UI 활성화
     }
 
     public void GameVictory()
@@ -193,6 +193,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        success.SetActive(true); // 승리 UI 활성화
+        UIManager.Instance.OpenUI(success); // 승리 UI 활성화
     }
 }
