@@ -23,5 +23,6 @@ public class ResumeButton : MonoBehaviour
     private void OnResumeClick()
     {
         ButtonManager.Instance.ResumeGame();
+        UIManager.Instance.CloseUI();
     }
 }
