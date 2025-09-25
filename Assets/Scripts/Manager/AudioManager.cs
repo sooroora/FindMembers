@@ -17,12 +17,11 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);//오디오매니저 싱글톤 만들어서 씬 넘어가도 오디오매니저 파괴 안되게 만들기, 오디오매니저를 만들어서 다른 곳에서 효과음 나올 타이밍에 함수만 갖다쓰면 바로 호출되게 만들기
         }
-        if (PlayerPrefs.HasKey("MasterVolume") == false)//있는지 없는지 확인
-        {
-            PlayerPrefs.SetFloat("MasterVolume", 1f);
-            PlayerPrefs.SetFloat("SetFxVolume", 0.5f);
-            PlayerPrefs.SetFloat("SetBgmVolume", 0.5f);
-        }
+        
+            PlayerPrefs.GetFloat("MasterVolume",1f);//가져오는거
+            PlayerPrefs.GetFloat("SetFxVolume",0.5f);// 효과음 볼륨 유저세팅값 가져오기
+            PlayerPrefs.GetFloat("SetBgmVolume",0.5f);// 배경음악 볼륨 유저세팅값 가져오기
+        
     }
     public AudioSource BGM;
     public AudioSource CardFlip;
