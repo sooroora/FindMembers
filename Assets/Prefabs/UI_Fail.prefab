@@ -34,7 +34,6 @@ RectTransform:
   - {fileID: 95100719742747179}
   - {fileID: 32867258913513192}
   - {fileID: 2020641046911499355}
-  - {fileID: 2215862996633353454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -897,65 +896,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &4752821866920868069
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 968104351091021849}
-    m_Modifications:
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -380
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -640
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7174990868298037799, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-      propertyPath: m_Name
-      value: FailBalloonSpawner
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
---- !u!4 &2215862996633353454 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6860453283275047947, guid: 0d8caa24595cbfe448ff19b836eb7809, type: 3}
-  m_PrefabInstance: {fileID: 4752821866920868069}
-  m_PrefabAsset: {fileID: 0}

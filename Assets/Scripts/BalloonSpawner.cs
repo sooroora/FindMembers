@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /*
  *  풍선을 소환하는 스포너입니다.
@@ -18,26 +20,12 @@ public class BalloonSpawner : MonoBehaviour
     // 랜덤 딜레이의 최소, 최대값을 설정합니다.
     public float delayMin = 0.2f;
     public float delayMax = 0.5f;
-    
+
     void Start()
     {
-        nowDelay = Random.Range(delayMin, delayMax);
+        if (GameManager.Instance.currentLevel == 3)
+            StartSpawning();
     }
-
-    void Update()
-    {
-        nowDelay -= Time.deltaTime;
-        
-        // 딜레이 시간이 다 되었을 때,
-        if (nowDelay <= 0)
-        {
-            // 풍선을 스폰합니다.
-            SpawnBalloon();
-            // 새로운 딜레이를 줍니다.
-            nowDelay = Random.Range(delayMin, delayMax);
-        }
-    }
-
     void SpawnBalloon()
     {
         // 스폰 위치 설정
@@ -57,5 +45,28 @@ public class BalloonSpawner : MonoBehaviour
         
         // 풍선은 6초 뒤에 제거합니다.
         Destroy(balloon, 6f);
+    }
+    
+    Coroutine spawnBalloonCoroutine;
+    public void StartSpawning()
+    {
+        spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+    }
+
+    public void StopSpawning()
+    {
+        StopCoroutine(spawnBalloonCoroutine);
+    }
+    IEnumerator DelayBalloonSpawn()
+    {
+        while (true)
+        {
+            float delay = Random.Range(delayMin, delayMax);
+            
+            yield return new WaitForSeconds(delay);
+            
+            // 풍선을 스폰합니다.
+            SpawnBalloon();
+        }
     }
 }
