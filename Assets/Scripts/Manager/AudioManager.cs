@@ -17,6 +17,11 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);//오디오매니저 싱글톤 만들어서 씬 넘어가도 오디오매니저 파괴 안되게 만들기, 오디오매니저를 만들어서 다른 곳에서 효과음 나올 타이밍에 함수만 갖다쓰면 바로 호출되게 만들기
         }
+        
+            PlayerPrefs.GetFloat("MasterVolume",1f);//가져오는거
+            PlayerPrefs.GetFloat("SetFxVolume",0.5f);// 효과음 볼륨 유저세팅값 가져오기
+            PlayerPrefs.GetFloat("SetBgmVolume",0.5f);// 배경음악 볼륨 유저세팅값 가져오기
+        
     }
     public AudioSource BGM;
     public AudioSource CardFlip;
@@ -25,7 +30,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource Failed;
     public AudioSource clear;
     public AudioSource TimeOver;
-    public AudioSource[] BtnClick;//오디오 소스 선언, 클릭버튼 사운드가 4가지가 랜덤으로 들어가는 식이라 배열을 통해 선언함, 인스펙터창에서 4칸 추가해서 사운드 추가
+    public AudioSource[] BtnClick;
+    //오디오 소스 선언, 클릭버튼 사운드가 4가지가 랜덤으로 들어가는 식이라 배열을 통해 선언함, 인스펙터창에서 4칸 추가해서 사운드 추가
 
     public void PlayOneShot(string sfxname)//다른 스크립트에서 해당하는 사운드 이름을 문자열형식으로 넣어두면 바로 불러올 수 있게 함수를 작성함
     {
@@ -63,20 +69,20 @@ public class AudioManager : MonoBehaviour
         BGM.Play();// 배경음악 재생 시작
     }
 
-    public void PlayRandomClick()//클릭사운드 호출하는 함수
+    public void PlayRandomClick()
     {
-        int randomclick = Random.Range(0, 4);//0부터 3의 랜덤한 범위 이내에서
-        BtnClick[randomclick].PlayOneShot(BtnClick[randomclick].clip);//선택된 버튼클릭에서 버튼 클릭 효과음을 1회 재생.
+        int randomclick = Random.Range(0, 4);
+        BtnClick[randomclick].PlayOneShot(BtnClick[randomclick].clip);
     }
 
     public void UpdateBgmPitch()
     {
-        BGM.pitch = 1.25f;// 배경음악 재생 속도(피치)를 1.25배로 변경
+        BGM.pitch = 1.25f;
     }
 
     public void ResetBgmPitch()
     {
-        BGM.pitch = 1f;// 배경음악 재생 속도를 기본값(정상 속도)으로 초기화
+        BGM.pitch = 1f;
     }
 
    
@@ -84,9 +90,6 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayBGM();// 게임 시작 시 자동으로 배경음악 재생
-
-        
-
     }
 
     public void SetMasterVolume(float volume)

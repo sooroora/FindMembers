@@ -1,26 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class ResumeButton : MonoBehaviour
+﻿
+public class ResumeButton : ButtonBase
 {
-    private Button button;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnable()
-    {
-        button.onClick.AddListener(OnResumeClick);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(OnResumeClick);
-    }
-
-    private void OnResumeClick()
+    protected override void OnButtonClick()
     {
         ButtonManager.Instance.ResumeGame();
         UIManager.Instance.CloseUI();

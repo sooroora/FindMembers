@@ -1,32 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-/*
- *
- *  OpenPopupButton 과 반대 역할을 수행합니다.
- *  팝업의 X 버튼에 부착하여 사용합니다.
- *    
- */
-public class ClosePopupButton : MonoBehaviour
+﻿
+/// <summary>
+/// OpenPopupButton 과 반대 역할을 수행합니다.
+/// 팝업의 X 버튼에 부착하여 사용합니다.
+/// </summary>
+public class ClosePopupButton : ButtonBase
 {
-    private Button button;
-
-    void Awake()
-    {
-        button = GetComponent<Button>();
-
-    }
-    private void OnEnable()
-    {
-        button.onClick.AddListener(ClosePopup);
-    }
-
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(ClosePopup);
-    }
-
-    private void ClosePopup()
+    protected override void OnButtonClick()
     {
         // 팝업을 닫을 때 동작할 함수를 실행합니다.
         ButtonManager.Instance.ClosePopup();
