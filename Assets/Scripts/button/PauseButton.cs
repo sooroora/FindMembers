@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PauseButton : MonoBehaviour
 {
+    [SerializeField] private GameObject popup;
+
     private Button button;
 
     private void Awake()
@@ -23,5 +25,6 @@ public class PauseButton : MonoBehaviour
     private void OnPauseClick()
     {
         ButtonManager.Instance.PauseGame();
+        UIManager.Instance.OpenUI(popup);
     }
 }
