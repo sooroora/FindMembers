@@ -555,7 +555,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 968104351034531666}
+  m_Father: {fileID: 920941602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -881,6 +881,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 581905502}
   - {fileID: 968104351034531666}
   m_Father: {fileID: 1710326594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -919,8 +920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1982402334}
-  success: {fileID: 7057965880396282026}
-  fail: {fileID: 604508967690742307}
+  success: {fileID: 1861272514}
+  fail: {fileID: 920941601}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   cardCount: 0
@@ -1814,7 +1815,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 581905502}
   - {fileID: 113842171419832047}
   - {fileID: 95100719949972832}
   - {fileID: 32867258990713251}
