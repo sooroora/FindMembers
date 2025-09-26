@@ -21,6 +21,11 @@
 ![게임화면](https://github.com/sooroora/FindMembers/blob/main/ReadMeSources/MainScene.png?raw=true)
 ![클리어화면](https://github.com/sooroora/FindMembers/blob/main/ReadMeSources/Clear.png?raw=true)
 
+2장의 카드를 뒤집어 같은 이미지의 카드를 맞추는 게임
+
+멤버들을 상징하는 이미지를 확인할 수 있습니다.
+카드 맞추기 게임을 통해 멤버를 알아봅시다!
+
 ---
 
 ## 사용한 기술
