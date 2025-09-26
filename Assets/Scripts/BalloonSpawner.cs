@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,9 +11,6 @@ public class BalloonSpawner : MonoBehaviour
     // 풍선 스프라이트를 프리팹으로 만든 것을 인스펙터에서 설정해줍니다.
     [SerializeField]  GameObject balloonPrefab;
     
-    // 풍선을 스폰하는 딜레이를 체크할 수 있는 변수입니다.
-    // 딜레이가 다 할 때마다 새로운 딜레이를 넣어줍니다.
-    private float nowDelay;
 
     // 랜덤 딜레이의 최소, 최대값을 설정합니다.
     public float delayMin = 0.2f;
@@ -50,7 +45,15 @@ public class BalloonSpawner : MonoBehaviour
     Coroutine spawnBalloonCoroutine;
     public void StartSpawning()
     {
-        spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        if (spawnBalloonCoroutine == null)
+        {
+            spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        }
+        else
+        {
+            StopSpawning();
+            spawnBalloonCoroutine = StartCoroutine(DelayBalloonSpawn());
+        }
     }
 
     public void StopSpawning()
