@@ -15,8 +15,7 @@
 ## 게임소개
 + 게임 이름: Find Members
 
-![게임화면](https://github.com/sooroora/FindMembers/blob/main/%EA%B2%8C%EC%9E%84%ED%99%94%EB%A9%B4.png)
-
+![MainScene](https://github.com/sooroora/FindMembers/blob/main/ReadMeSources/MainScene.png)
 ---
 
 ## 사용한 기술
