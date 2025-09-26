@@ -57,8 +57,6 @@ public class Card : MonoBehaviour
         AudioManager.Instance.PlayOneShot("CardFlip");
         // 뒤집히는 애니메이션 실행
         anim.SetBool("isOpen", true);
-        front.SetActive(true);
-        back.SetActive(false);
 
         // GameManager에 첫 번째 카드로 등록
         if (gm.firstCard == null)
