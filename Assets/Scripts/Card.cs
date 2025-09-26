@@ -81,7 +81,6 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         back.SetActive(false);
     }
-    }*/
 
     // 카드를 제거하는 함수 (외부에서 호출 → 코루틴 실행)
     public void DestroyCard()
