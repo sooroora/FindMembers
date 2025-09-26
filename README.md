@@ -9,7 +9,6 @@
 
 
 
-[테스트](https://github.com/sooroora/FindMembers?tab=readme-ov-file#%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%88%A0)
 ----
 
 ## 게임소개
