@@ -1,13 +1,16 @@
+## 목차
++ [멤버구성](https://github.com/sooroora/FindMembers?tab=readme-ov-file#%EB%A9%A4%EB%B2%84%EA%B5%AC%EC%84%B1)
++ [게임소개](https://github.com/sooroora/FindMembers?tab=readme-ov-file#%EA%B2%8C%EC%9E%84%EC%86%8C%EA%B0%9C)
++ [사용한 기술](https://github.com/sooroora/FindMembers?tab=readme-ov-file#%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%88%A0)
+  
+---
+
 ## 멤버구성
 + 팀장: 황준영
 + 팀원: 박상현
 + 팀원: 양채윤
 + 팀원: 전수라
 + 팀원: 정재우
-
-
-
-
 
 ----
 
