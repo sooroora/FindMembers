@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Matched()
     {
-        isLock = true; // 매칭 처리 중 추가 입력 잠금
+        isLock = true; 
 
         if (firstCard.idx == secondCard.idx)
         {
-            // [매칭 성공] 0.3초 딜레이 후 사운드 재생 (애니메이션과 싱크 맞추기)
+            
             StartCoroutine(DelayPlay(delay, () => AudioManager.Instance.PlayOneShot("Matched")));
 
             firstCard.DestroyCard();
