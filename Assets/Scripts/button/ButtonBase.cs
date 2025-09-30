@@ -7,12 +7,13 @@ using UnityEngine.UI;
 /// </summary>
 public abstract class ButtonBase : MonoBehaviour
 {
-    protected Button button; // 자식 클래스에서 접근 가능하도록 protected로 선언
+    [SerializeField] private Button button; // 자식 클래스에서 접근 가능하도록 protected로 선언
 
     private void Awake()
     {
         // 1. 버튼 컴포넌트 초기화는 모든 버튼의 공통 책임
-        button = GetComponent<Button>();
+        if (button == null)
+            button = GetComponent<Button>();
     }
 
     private void OnEnable()
